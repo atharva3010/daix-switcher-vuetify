@@ -14,6 +14,7 @@
         :disabled="exchangeProps.loading"
         hide-details
         outlined
+        color="secondary"
       ></v-text-field>
     </v-col>
     <v-col cols="6" class="pl-2">
@@ -44,18 +45,19 @@
           </div>
 
           <v-text-field
-            autofocus
             v-model="searchCoin"
-            class="px-8"
             placeholder="Search.."
+            color="secondary"
+            class="px-8"
+            autofocus
           ></v-text-field>
           <v-list flat style="overflow-y:scroll" height="80vh">
             <v-subheader class="pl-8">Available Coins</v-subheader>
             <v-list-item-group color="primary">
               <v-list-item
                 @click="selectCoin(coin)"
-                v-for="(coin, i) in filterCoins"
-                :key="i"
+                v-for="(coin, coinIndex) in filterCoins"
+                :key="coinIndex"
                 class="px-8"
               >
                 <v-img
@@ -100,15 +102,13 @@ export default {
   }),
   computed: {
     filterCoins() {
-      let searchCoin = this.searchCoin
       return this.coins.filter(coin => {
         return (
-          (coin.isActive === true &&
-            coin.isFiat === false &&
-            coin.symbol.toLowerCase().indexOf(searchCoin.toLowerCase()) > -1) ||
-          (coin.isActive === true &&
-            coin.isFiat === false &&
-            coin.name.toLowerCase().indexOf(searchCoin.toLowerCase()) > -1)
+          coin.isActive === true &&
+          coin.isFiat === false &&
+          (coin.symbol.toLowerCase().indexOf(this.searchCoin.toLowerCase()) >
+            -1 ||
+            coin.name.toLowerCase().indexOf(this.searchCoin.toLowerCase()) > -1)
         )
       })
     }

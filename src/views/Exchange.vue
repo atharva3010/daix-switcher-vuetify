@@ -14,9 +14,12 @@
           <CoinForm
             :coins="coins"
             :exchangeProps="depositCoin"
-            @select-coin="selectCoinDepo"
+            @select-coin="
+              param1 => {
+                this.selectCoin('deposit', param1)
+              }
+            "
             v-model.number="depositCoin.amount"
-            class=""
           />
 
           <div class="text-right">
@@ -29,7 +32,11 @@
           <CoinForm
             :coins="coins"
             :exchangeProps="destinationCoin"
-            @select-coin="selectCoinDesti"
+            @select-coin="
+              param1 => {
+                this.selectCoin('destination', param1)
+              }
+            "
             v-model.number="destinationCoin.amount"
             class="mt-3"
           />
@@ -58,7 +65,8 @@
                 :disabled="
                   error.badAmountErr.state ||
                     error.pairOffline.state ||
-                    !destinationCoin.amount
+                    !destinationCoin.amount ||
+                    destinationCoin.loading
                 "
                 color="primary"
                 class="mt-4 px-5"
@@ -108,16 +116,16 @@ export default {
   data() {
     return {
       coins: [],
-      limit: Object,
+      limit: {},
       depositCoin: {
         name: 'depositCoin',
-        selected: Object,
+        selected: {},
         amount: 0.1,
         label: 'Send'
       },
       destinationCoin: {
         name: 'destinationCoin',
-        selected: Object,
+        selected: {},
         amount: null,
         label: 'Get',
         disabled: true,
@@ -126,11 +134,11 @@ export default {
       error: {
         badAmountErr: {
           state: false,
-          msg: String
+          msg: ''
         },
         pairOffline: {
           state: false,
-          msg: String
+          msg: ''
         }
       },
       dialog: {
@@ -138,35 +146,38 @@ export default {
         state: false
       },
       orderDetails: {
-        exchangeAddress: String,
-        orderId: String,
+        exchangeAddress: '',
+        orderId: '',
         confirmed: false,
         loading: false,
         destinationAddress: '',
-        status: 'Awaiting Deposit'
+        status: 'Awaiting Deposit',
+        rate: 0,
+        minerFee: 0
       }
     }
   },
   methods: {
-    selectCoinDepo(coin) {
-      this.depositCoin.selected = coin
+    selectCoin(saveToObject, coin) {
+      if (saveToObject === 'deposit') {
+        this.depositCoin.selected = coin
+      } else {
+        this.destinationCoin.selected = coin
+      }
     },
     selectCoinDesti(coin) {
       this.destinationCoin.selected = coin
     },
-    setCoin() {
-      // Get default coin object from coins
-      this.depositCoin.selected = this.coins.find(coin => {
-        return coin.symbol === 'btc'
-      })
-      this.destinationCoin.selected = this.coins.find(coin => {
-        return coin.symbol === 'eth'
+    setCoin(coinSymbol, path) {
+      // Set default coins on page load
+      path.selected = this.coins.find(coin => {
+        return coin.symbol === coinSymbol
       })
     },
-    calcRate(response) {
+    calcRate() {
       return (
-        this.depositCoin.amount * response.data.data.rate -
-        response.data.data.minerFee
+        this.depositCoin.amount * this.orderDetails.rate -
+        this.orderDetails.minerFee
       )
     },
     swapCoins() {
@@ -176,137 +187,162 @@ export default {
       ][0]
     },
     checkLimit(value, min, max, coin) {
+      this.error.badAmountErr.state = false
       if (value < min) {
         this.error.badAmountErr.msg = `Minimum amount is ${min} ${coin.toUpperCase()}`
         this.error.badAmountErr.state = true
       } else if (value > max) {
         this.error.badAmountErr.msg = `Maximum amount is ${max} ${coin.toUpperCase()}`
         this.error.badAmountErr.state = true
-      } else {
-        this.error.badAmountErr.state = false
       }
     },
 
     // API CALLS
-    getCoin() {
+    postRequest(method, route, data, callback) {
       axios({
-        method: 'get',
-        url: API_URL + 'coins',
+        method: method,
+        url: API_URL + route,
         headers: {
           'x-api-key': API_KEY
+        },
+        data: method == 'post' ? data : undefined
+      }).then(callback)
+    },
+    getCoin() {
+      this.postRequest('get', 'coins', 'none', response => {
+        this.coins = response.data.data
+        if (!localStorage.depositCoin) {
+          this.setCoin('btc', this.depositCoin)
+        }
+        if (!localStorage.destSelected) {
+          this.setCoin('neo', this.destinationCoin)
         }
       })
-        .then(response => {
-          this.coins = response.data.data
-        })
-        .then(this.setCoin)
     },
     getRate() {
-      let depo = this.depositCoin
-      let dest = this.destinationCoin
-
-      dest.loading = true
-      dest.amount = 0
-      axios({
-        method: 'post',
-        url: API_URL + 'rate',
-        headers: {
-          'x-api-key': API_KEY
+      this.destinationCoin.loading = true
+      this.postRequest(
+        'post',
+        'rate',
+        {
+          depositCoin: this.depositCoin.selected.symbol,
+          destinationCoin: this.destinationCoin.selected.symbol
         },
-        data: {
-          depositCoin: depo.selected.symbol,
-          destinationCoin: dest.selected.symbol
-        }
-      }).then(response => {
-        this.checkAvailable()
-        dest.amount = _.round(this.calcRate(response), 6)
-        dest.loading = false
-        this.limit = response.data.data
+        response => {
+          this.orderDetails.rate = 0
+          this.orderDetails.minerFee = 0
+          this.destinationCoin.amount = 0
+          localStorage.setItem('depositCoin', JSON.stringify(this.depositCoin))
+          localStorage.setItem(
+            'destSelected',
+            JSON.stringify(this.destinationCoin.selected)
+          )
+          if (!this.error.pairOffline.state) {
+            this.orderDetails.rate = response.data.data.rate
+            this.orderDetails.minerFee = response.data.data.minerFee
+            this.destinationCoin.amount = _.round(this.calcRate(), 6)
+            this.destinationCoin.loading = false
+            this.limit = response.data.data
 
-        this.checkLimit(
-          this.depositCoin.amount,
-          this.limit.limitMinDepositCoin,
-          this.limit.limitMaxDepositCoin,
-          depo.selected.symbol
-        )
-      })
+            this.checkLimit(
+              this.depositCoin.amount,
+              this.limit.limitMinDepositCoin,
+              this.limit.limitMaxDepositCoin,
+              this.depositCoin.selected.symbol
+            )
+          }
+          this.destinationCoin.loading = false
+        }
+      )
     },
     getOrder() {
-      let depo = this.depositCoin
-      let dest = this.destinationCoin
-
       this.orderDetails.loading = true
-      axios({
-        method: 'post',
-        url: API_URL + 'order',
-        headers: {
-          'x-api-key': API_KEY
-        },
-        data: {
-          depositCoin: depo.selected.symbol,
-          destinationCoin: dest.selected.symbol,
-          depositCoinAmount: depo.amount,
+      this.postRequest(
+        'post',
+        'order',
+        {
+          depositCoin: this.depositCoin.selected.symbol,
+          destinationCoin: this.destinationCoin.selected.symbol,
+          depositCoinAmount: this.depositCoin.amount,
           destinationAddress: {
             address: this.orderDetails.destinationAddress,
             tag: null
           }
-        }
-      }).then(response => {
-        let data = response.data.data
-        this.orderDetails.orderId = data.orderId
-        this.orderDetails.exchangeAddress = data.exchangeAddress.address
-        this.orderDetails.confirmed = true
-        this.orderDetails.loading = false
-      })
-    },
-    checkAvailable() {
-      let depo = this.depositCoin
-      let dest = this.destinationCoin
-      axios({
-        method: 'post',
-        url: API_URL + 'pairs',
-        headers: {
-          'x-api-key': API_KEY
         },
-        data: {
-          depositCoin: depo.selected.symbol,
-          destinationCoin: dest.selected.symbol
+        response => {
+          this.orderDetails.orderId = response.data.data.orderId
+          this.orderDetails.exchangeAddress =
+            response.data.data.exchangeAddress.address
+          if (this.orderDetails.orderId) {
+            this.orderDetails.confirmed = true
+            this.orderDetails.loading = false
+            this.getOrderStatus()
+          }
         }
-      }).then(response => {
-        if (response.data.data.length === 0) {
-          this.error.pairOffline.state = true
-        } else {
-          this.error.pairOffline.state = false
+      )
+    },
+    getAvailable() {
+      this.postRequest(
+        'post',
+        'pairs',
+        {
+          depositCoin: this.depositCoin.selected.symbol,
+          destinationCoin: this.destinationCoin.selected.symbol
+        },
+        response => {
+          if (response.data.data.length === 0) {
+            this.error.pairOffline.state = true
+          } else {
+            this.error.pairOffline.state = false
+          }
+          this.getRate()
         }
-      })
+      )
     }
+    // getOrderStatus() {
+    //   this.postRequest(
+    //     'get',
+    //     'order/22222222-6c9e-4c53-9a6d-55e089aebd04',
+    //     'none',
+    //     response => {
+    //       console.log(response)
+    //     }
+    //   )
+    // }
   },
-  mounted() {
-    this.getCoin()
-  },
+  computed: {},
   watch: {
     'depositCoin.amount': {
       handler: function() {
-        if (this.depositCoin.amount != '' || this.depositCoin.amount !== 0) {
+        if (this.depositCoin.amount) {
           this.debouncedGetRate()
         }
       }
     },
-    'destinationCoin.selected': {
-      handler: function() {
-        this.getRate()
-      }
-    },
     'depositCoin.selected': {
       handler: function() {
-        this.getRate()
+        this.getAvailable()
+      }
+    },
+    'destinationCoin.selected': {
+      handler: function() {
+        this.getAvailable()
       }
     }
   },
   created() {
     this.debouncedGetRate = _.debounce(this.getRate, 2500)
+  },
+  mounted() {
+    this.getCoin()
+    if (localStorage.getItem('depositCoin')) {
+      this.depositCoin = JSON.parse(localStorage.getItem('depositCoin'))
+    }
+    if (localStorage.getItem('destSelected')) {
+      this.destinationCoin.selected = JSON.parse(
+        localStorage.getItem('destSelected')
+      )
+    }
   }
 }
 </script>
-
-<style scoped></style>

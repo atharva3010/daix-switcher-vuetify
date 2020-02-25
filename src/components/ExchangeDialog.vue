@@ -22,7 +22,8 @@
         <!-- TODO: fix form validation for address -->
         <v-text-field
           v-model="orderDetails.destinationAddress"
-          :label="'Enter ' + this.destinationCoin.selected.name + ' Address'"
+          color="secondary"
+          :label="`Enter ${this.destinationCoin.selected.name} Address`"
           required
         ></v-text-field>
         <div>

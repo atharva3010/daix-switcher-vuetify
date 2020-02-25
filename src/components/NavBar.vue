@@ -16,7 +16,13 @@
           <v-icon>mdi-close</v-icon>
         </v-list-item-icon>
       </v-list-item>
-      <v-list-item :to="view.path" v-for="(view, i) in views" :key="i" link>
+      <v-list-item
+        color="secondary"
+        :to="view.path"
+        v-for="(view, i) in views"
+        :key="i"
+        link
+      >
         <v-list-item-icon>
           <v-icon>{{ view.icon }}</v-icon>
         </v-list-item-icon>

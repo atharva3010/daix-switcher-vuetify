@@ -1,17 +1,18 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <v-col class="" sm="8" cols="12">
+      <v-col class="px-5" sm="8" cols="12">
         <div class="font-weight-light">
-          <h1 class="mb-5 pt-10 font-regular" style="line-height:1.05">
-            Change Crypto For Better Rates
+          <h1 class="mb-5 pt-6 font-regular" style="line-height:1.05">
+            Swap Your Cryptocurrency
           </h1>
-          <p class="subtitle-1 mb-10" style="line-height:1.2">
-            Over 300+ coins without needing to signup for an account.
+          <p class="subtitle-1 mb-4" style="line-height:1.2">
+            Trade 300+ coins without signing up for an account.
           </p>
         </div>
-        <v-card class="sm-px-4 px-4 sm-py-6 py-10">
+        <v-card color="background-secondary" class="py-10" flat>
           <CoinForm
+            v-model.number="depositCoin.amount"
             :coins="coins"
             :exchangeProps="depositCoin"
             @select-coin="
@@ -19,7 +20,6 @@
                 this.selectCoin('deposit', param1)
               }
             "
-            v-model.number="depositCoin.amount"
           />
 
           <div class="text-right">
@@ -30,15 +30,15 @@
           </div>
 
           <CoinForm
+            v-model.number="destinationCoin.amount"
             :coins="coins"
             :exchangeProps="destinationCoin"
+            class="mt-3"
             @select-coin="
               param1 => {
                 this.selectCoin('destination', param1)
               }
             "
-            v-model.number="destinationCoin.amount"
-            class="mt-3"
           />
         </v-card>
         <div style="display:flex; justify-content:center">
@@ -72,6 +72,7 @@
                 class="mt-4 px-5"
                 height="45px"
                 v-on="on"
+                depressed
               >
                 Proceed
               </v-btn>

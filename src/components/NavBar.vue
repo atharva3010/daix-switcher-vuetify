@@ -1,11 +1,11 @@
 <template>
   <div id="nav">
-    <v-app-bar color="primary" app flat dark>
-      <v-app-bar-nav-icon @click.stop="drawer = true" dark></v-app-bar-nav-icon>
+    <v-app-bar color="background" flat app>
+      <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
-      <v-toolbar-title dark>DAIX</v-toolbar-title>
+      <v-toolbar-title>DAIX</v-toolbar-title>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" absolute app temporary dark>
+    <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title>
@@ -23,12 +23,21 @@
         :key="i"
         link
       >
-        <v-list-item-icon>
-          <v-icon>{{ view.icon }}</v-icon>
+        <v-list-item-icon class="mr-3">
+          <v-icon class="list-icon" dense>{{ view.icon }}</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title v-text="view.name"></v-list-item-title>
         </v-list-item-content>
+      </v-list-item>
+      <v-list-item>
+        <v-switch
+          v-model="$vuetify.theme.dark"
+          hide-details
+          inset
+          label="Theme Dark"
+          color="accent"
+        ></v-switch>
       </v-list-item>
     </v-navigation-drawer>
   </div>
@@ -57,4 +66,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.v-list-item--active .list-icon {
+  color: var(--v-secondary-base);
+}
+</style>

@@ -42,13 +42,14 @@
             </template>
           </v-checkbox>
           <v-btn
-            :disabled="!dialog.terms"
+            :disabled="!dialog.terms || !orderDetails.destinationAddress"
+            :loading="orderDetails.loading"
             color="primary"
             class="mt-4 px-5"
             height="45px"
             width="100%"
-            :loading="orderDetails.loading"
             @click="$emit('exchange')"
+            depressed
           >
             Exchange
           </v-btn>

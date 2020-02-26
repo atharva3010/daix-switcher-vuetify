@@ -3,12 +3,12 @@
     <v-app-bar color="background" flat app>
       <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
-      <v-toolbar-title>DAIX</v-toolbar-title>
+      <v-toolbar-title style="letter-spacing:4px">DAIX</v-toolbar-title>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title>
+          <v-list-item-title style="letter-spacing:4px">
             DAIX
           </v-list-item-title>
         </v-list-item-content>

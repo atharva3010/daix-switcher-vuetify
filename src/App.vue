@@ -19,7 +19,6 @@ export default {
   components: {
     NavBar
   },
-
   computed: {
     theme() {
       return this.$vuetify.theme.dark ? 'dark' : 'light'

@@ -10,8 +10,8 @@
             Trade 300+ coins without signing up for an account.
           </p>
         </div>
-        <v-card color="background-secondary" class="py-10" flat>
-          <CoinForm
+        <v-card color="background-secondary" class="pt-10 pb-6" flat>
+          <ExchangeForm
             v-model.number="depositCoin.amount"
             :coins="coins"
             :exchangeProps="depositCoin"
@@ -29,7 +29,7 @@
             </v-btn>
           </div>
 
-          <CoinForm
+          <ExchangeForm
             v-model.number="destinationCoin.amount"
             :coins="coins"
             :exchangeProps="destinationCoin"
@@ -41,58 +41,36 @@
             "
           />
         </v-card>
-        <div style="display:flex; justify-content:center">
-          <v-alert
-            v-if="error.badAmountErr.state && !error.pairOffline.state"
-            class="mt-4 text-center"
-            color="red accent-2"
-            >{{ error.badAmountErr.msg }}</v-alert
-          ><v-alert
-            v-if="error.pairOffline.state"
-            class="mt-4 text-center"
-            color="red accent-2"
-            >This trading pair is currently not available.</v-alert
-          >
+        <div>
+          <ExchangeAlert
+            :badAmount="error.badAmountErr"
+            :pairOffline="error.pairOffline"
+          />
         </div>
-        <v-dialog
-          v-model="dialog.state"
-          hide-overlay
-          transition="dialog-bottom-transition"
-        >
-          <template v-slot:activator="{ on }">
-            <div class="text-center">
-              <v-btn
-                :disabled="
-                  error.badAmountErr.state ||
-                    error.pairOffline.state ||
-                    !destinationCoin.amount ||
-                    destinationCoin.loading
-                "
-                color="primary"
-                class="mt-4 px-5"
-                height="45px"
-                v-on="on"
-                depressed
-              >
-                Proceed
-              </v-btn>
-            </div>
-          </template>
-          <v-card
-            class="mx-auto"
-            style="border-radius:15px; position: absolute; bottom: 0;"
-            width="100vw"
-            height="95%"
+        <div class="text-center">
+          <v-btn
+            :disabled="
+              error.badAmountErr.state ||
+                error.pairOffline.state ||
+                !destinationCoin.amount ||
+                destinationCoin.loading
+            "
+            color="primary"
+            class="mt-4 px-5"
+            height="45px"
+            @click.stop="showExchangeDialog = true"
+            depressed
           >
-            <ExchangeDialog
-              :dialog="dialog"
-              :destinationCoin="destinationCoin"
-              :depositCoin="depositCoin"
-              :orderDetails="orderDetails"
-              @exchange="getOrder"
-            />
-          </v-card>
-        </v-dialog>
+            Proceed
+          </v-btn>
+        </div>
+        <ExchangeDialog
+          v-model="showExchangeDialog"
+          :destinationCoin="destinationCoin"
+          :depositCoin="depositCoin"
+          :orderDetails="orderDetails"
+          @exchange="getOrder"
+        />
       </v-col>
     </v-row>
   </v-container>
@@ -100,8 +78,9 @@
 
 <script>
 import axios from 'axios'
-import CoinForm from '../components/CoinForm'
+import ExchangeForm from '../components/ExchangeForm'
 import ExchangeDialog from '../components/ExchangeDialog'
+import ExchangeAlert from '../components/ExchangeAlert'
 
 import _ from 'lodash'
 
@@ -110,12 +89,14 @@ const API_KEY = 'Y72jsy9iwD5uiazajayqp190dhjabn3kjauis'
 
 export default {
   components: {
-    CoinForm,
-    ExchangeDialog
+    ExchangeForm,
+    ExchangeDialog,
+    ExchangeAlert
   },
   name: 'Exchange',
   data() {
     return {
+      showExchangeDialog: false,
       coins: [],
       limit: {},
       depositCoin: {
@@ -141,10 +122,6 @@ export default {
           state: false,
           msg: ''
         }
-      },
-      dialog: {
-        terms: false,
-        state: false
       },
       orderDetails: {
         exchangeAddress: '',
@@ -189,6 +166,7 @@ export default {
     },
     checkLimit(value, min, max, coin) {
       this.error.badAmountErr.state = false
+      this.error.badAmountErr.msg = ''
       if (value < min) {
         this.error.badAmountErr.msg = `Minimum amount is ${min} ${coin.toUpperCase()}`
         this.error.badAmountErr.state = true
@@ -277,7 +255,6 @@ export default {
           if (this.orderDetails.orderId) {
             this.orderDetails.confirmed = true
             this.orderDetails.loading = false
-            this.getOrderStatus()
           }
         }
       )
@@ -291,10 +268,12 @@ export default {
           destinationCoin: this.destinationCoin.selected.symbol
         },
         response => {
+          this.error.pairOffline.state = false
+          this.error.pairOffline.msg = ''
           if (response.data.data.length === 0) {
             this.error.pairOffline.state = true
-          } else {
-            this.error.pairOffline.state = false
+            this.error.pairOffline.msg = `This trading pair is currently not
+    available.`
           }
           this.getRate()
         }

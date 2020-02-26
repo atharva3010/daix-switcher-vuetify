@@ -15,7 +15,7 @@
         hide-details
         outlined
         color="secondary"
-      ></v-text-field>
+      />
     </v-col>
     <v-col cols="6" class="pl-2">
       <v-dialog
@@ -26,13 +26,12 @@
       >
         <template v-slot:activator="{ on }">
           <v-btn color="grey" height="56px" v-on="on" block outlined
-            ><v-spacer></v-spacer
-            ><v-img
+            ><v-spacer />
+            <v-img
               class="mr-3"
               style="max-width:23px; border-radius:50%"
               :src="exchangeProps.selected.logoUrl"
-            ></v-img
-            >{{ exchangeProps.selected.symbol }}<v-spacer /><v-icon right
+            />{{ exchangeProps.selected.symbol }}<v-spacer /><v-icon right
               >mdi-chevron-down</v-icon
             ></v-btn
           >
@@ -50,7 +49,7 @@
             color="secondary"
             class="px-8"
             autofocus
-          ></v-text-field>
+          />
           <v-list flat style="overflow-y:scroll" height="80vh">
             <v-subheader class="pl-8">Available Coins</v-subheader>
             <v-list-item-group color="primary">
@@ -64,33 +63,29 @@
                   class="mr-3"
                   style="max-width:30px; border-radius:50%"
                   :src="coin.logoUrl"
-                ></v-img>
+                />
                 <v-list-item-content>
                   <v-list-item-title
                     class="ml-4"
                     style="text-transform:uppercase"
                     v-text="coin.symbol"
-                  ></v-list-item-title>
+                  />
                 </v-list-item-content>
                 <v-list-item-content>
-                  <v-list-item-title v-text="coin.name"></v-list-item-title>
+                  <v-list-item-title v-text="coin.name" />
                 </v-list-item-content>
               </v-list-item>
             </v-list-item-group>
           </v-list>
-          <v-card class="mx-5 mt-6"> </v-card>
         </v-card>
       </v-dialog>
     </v-col>
-    <v-row v-if="this.exchangeProps.label === 'Send'">
-      <v-col class="pb-0 pl-6 pt-4"> </v-col>
-    </v-row>
   </v-row>
 </template>
 
 <script>
 export default {
-  name: 'CoinForm',
+  name: 'ExchangeForm',
   props: {
     coins: Array,
     exchangeProps: Object
@@ -121,4 +116,3 @@ export default {
   }
 }
 </script>
-<style scoped></style>

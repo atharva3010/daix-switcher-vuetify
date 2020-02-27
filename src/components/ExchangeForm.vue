@@ -9,10 +9,10 @@
           :disabled="exchangeProps.loading"
           placeholder="Enter Amount"
           type="number"
-          height="55px"
           class="pa-0 ma-0"
           color="secondary"
           style="border-inline:1px solid black; border-radius:0;
+          font-weight: bold;
           border-top-left-radius: 4px;
           border-bottom-left-radius: 4px;"
           hide-details
@@ -51,12 +51,11 @@
             >
           </template>
           <v-card
-            class="mx-auto background-white"
+            class="mx-auto background"
             style="width:inherit"
             height="450px"
-            light
           >
-            <div class="px-0 secondary dark">
+            <div class="px-0">
               <div class="pa-3 pb-0 text-right">
                 <v-btn icon @click.stop="dialog = false">
                   <v-icon>mdi-close</v-icon>
@@ -66,14 +65,13 @@
                 <v-text-field
                   v-model="searchCoin"
                   placeholder="Search.."
-                  class="px-6 mt-0 pt-0"
+                  class="px-8 mt-0 pt-0"
                   autofocus
-                  color="grey darken-3"
                 />
               </div>
             </div>
             <div height="100%">
-              <v-list flat style="overflow-y:hidden">
+              <v-list flat style="overflow-y:hidden" class="background">
                 <v-subheader class="pl-8">Available Coins</v-subheader>
                 <v-list-item-group color="primary">
                   <v-list-item

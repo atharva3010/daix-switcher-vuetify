@@ -10,7 +10,6 @@
         <v-text-field
           v-model="orderDetails.destinationAddress"
           :label="`Enter ${this.destinationCoin.selected.name} Address`"
-          color="grey darken-3"
           class="pt-6"
           required
         />

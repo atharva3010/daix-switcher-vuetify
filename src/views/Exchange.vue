@@ -4,7 +4,7 @@
       <v-col class="px-5" sm="12" md="10" cols="12">
         <div>
           <h1
-            class="mb-5 pt-6 font-weight-bold"
+            class="mb-8 pt-6 font-weight-bold"
             :class="[
               $vuetify.breakpoint.mdAndUp
                 ? 'display-3'
@@ -40,10 +40,14 @@
             "
           />
 
-          <div class="text-right mt-4 mb-0 mt-sm-8 my-2 mx-sm-3">
+          <div class="text-right mt-5 mb-0 mt-sm-8 my-2 mx-sm-3">
             <v-btn text icon @click="swapCoins">
               <!-- TODO: make swap-vertical icon spin once on click -->
-              <v-icon size="30">mdi-swap-vertical</v-icon>
+              <v-icon size="30">{{
+                $vuetify.breakpoint.smAndUp
+                  ? 'mdi-swap-horizontal'
+                  : 'mdi-swap-vertical'
+              }}</v-icon>
             </v-btn>
           </div>
 
@@ -98,15 +102,12 @@
 </template>
 
 <script>
-import axios from 'axios'
+import EventService from '../services/EventService'
 import ExchangeForm from '../components/ExchangeForm'
 import ExchangeDialog from '../components/ExchangeDialog'
 import ExchangeAlert from '../components/ExchangeAlert'
 
 import _ from 'lodash'
-
-const API_URL = 'https://api.coinswitch.co/v2/'
-const API_KEY = 'Y72jsy9iwD5uiazajayqp190dhjabn3kjauis'
 
 export default {
   components: {
@@ -197,20 +198,8 @@ export default {
         this.error.badAmountErr.state = true
       }
     },
-
-    // API CALLS
-    postRequest(method, route, data, callback) {
-      axios({
-        method: method,
-        url: API_URL + route,
-        headers: {
-          'x-api-key': API_KEY
-        },
-        data: method == 'post' ? data : undefined
-      }).then(callback)
-    },
-    getCoin() {
-      this.postRequest('get', 'coins', 'none', response => {
+    getCoins() {
+      EventService.getCoins().then(response => {
         this.coins = response.data.data
         if (!localStorage.depositCoin) {
           this.setCoin('btc', this.depositCoin)
@@ -222,85 +211,71 @@ export default {
     },
     getRate() {
       this.destinationCoin.loading = true
-      this.postRequest(
-        'post',
-        'rate',
-        {
-          depositCoin: this.depositCoin.selected.symbol,
-          destinationCoin: this.destinationCoin.selected.symbol
-        },
-        response => {
-          this.orderDetails.rate = 0
-          this.orderDetails.minerFee = 0
-          this.destinationCoin.amount = 0
-          localStorage.setItem('depositCoin', JSON.stringify(this.depositCoin))
-          localStorage.setItem(
-            'destSelected',
-            JSON.stringify(this.destinationCoin.selected)
-          )
-          if (!this.error.pairOffline.state) {
-            this.orderDetails.rate = response.data.data.rate
-            this.orderDetails.minerFee = response.data.data.minerFee
-            this.destinationCoin.amount = _.round(this.calcRate(), 4)
-            this.destinationCoin.loading = false
-            this.limit = response.data.data
-
-            this.checkLimit(
-              this.depositCoin.amount,
-              this.limit.limitMinDepositCoin,
-              this.limit.limitMaxDepositCoin,
-              this.depositCoin.selected.symbol
-            )
-          }
+      EventService.getRate({
+        depositCoin: this.depositCoin.selected.symbol,
+        destinationCoin: this.destinationCoin.selected.symbol
+      }).then(response => {
+        this.orderDetails.rate = 0
+        this.orderDetails.minerFee = 0
+        this.destinationCoin.amount = 0
+        localStorage.setItem('depositCoin', JSON.stringify(this.depositCoin))
+        localStorage.setItem(
+          'destSelected',
+          JSON.stringify(this.destinationCoin.selected)
+        )
+        if (!this.error.pairOffline.state) {
+          this.orderDetails.rate = response.data.data.rate
+          this.orderDetails.minerFee = response.data.data.minerFee
+          this.destinationCoin.amount = _.round(this.calcRate(), 4)
           this.destinationCoin.loading = false
+          this.limit = response.data.data
+
+          this.checkLimit(
+            this.depositCoin.amount,
+            this.limit.limitMinDepositCoin,
+            this.limit.limitMaxDepositCoin,
+            this.depositCoin.selected.symbol
+          )
         }
-      )
+        this.destinationCoin.loading = false
+      })
     },
     getOrder() {
       this.orderDetails.loading = true
-      this.postRequest(
-        'post',
-        'order',
-        {
-          depositCoin: this.depositCoin.selected.symbol,
-          destinationCoin: this.destinationCoin.selected.symbol,
-          depositCoinAmount: this.depositCoin.amount,
-          destinationAddress: {
-            address: this.orderDetails.destinationAddress,
-            tag: null
-          }
-        },
-        response => {
-          this.orderDetails.orderId = response.data.data.orderId
-          this.orderDetails.exchangeAddress =
-            response.data.data.exchangeAddress.address
-          if (this.orderDetails.orderId) {
-            this.orderDetails.confirmed = true
-            this.orderDetails.loading = false
-          }
+      EventService.getOrder({
+        depositCoin: this.depositCoin.selected.symbol,
+        destinationCoin: this.destinationCoin.selected.symbol,
+        depositCoinAmount: this.depositCoin.amount,
+        destinationAddress: {
+          address: this.orderDetails.destinationAddress,
+          tag: null
         }
-      )
+      }).then(response => {
+        this.orderDetails.orderId = response.data.data.orderId
+        this.orderDetails.exchangeAddress =
+          response.data.data.exchangeAddress.address
+        if (this.orderDetails.orderId) {
+          this.orderDetails.confirmed = true
+          this.orderDetails.loading = false
+        }
+      })
     },
     getAvailable() {
-      this.postRequest(
-        'post',
-        'pairs',
-        {
-          depositCoin: this.depositCoin.selected.symbol,
-          destinationCoin: this.destinationCoin.selected.symbol
-        },
-        response => {
-          this.error.pairOffline.state = false
-          this.error.pairOffline.msg = ''
-          if (response.data.data.length === 0) {
-            this.error.pairOffline.state = true
-            this.error.pairOffline.msg = `This trading pair is currently not
+      EventService.getAvailable({
+        depositCoin: this.depositCoin.selected.symbol,
+        destinationCoin: this.destinationCoin.selected.symbol
+      }).then(response => {
+        this.error.pairOffline.state = false
+        this.error.pairOffline.msg = ''
+        if (response.data.data.length === 0) {
+          this.error.pairOffline.state = true
+          this.error.pairOffline.msg = `This trading pair is currently not
     available.`
-          }
-          this.getRate()
         }
-      )
+        this.getRate()
+      })
     }
+
     // getOrderStatus() {
     //   this.postRequest(
     //     'get',
@@ -336,7 +311,7 @@ export default {
     this.debouncedGetRate = _.debounce(this.getRate, 2500)
   },
   mounted() {
-    this.getCoin()
+    this.getCoins()
     if (localStorage.getItem('depositCoin')) {
       this.depositCoin = JSON.parse(localStorage.getItem('depositCoin'))
     }

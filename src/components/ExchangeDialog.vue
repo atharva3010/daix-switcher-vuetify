@@ -6,7 +6,7 @@
       transition="dialog-bottom-transition"
       :fullscreen="$vuetify.breakpoint.xsOnly"
     >
-      <v-card class="mx-auto background-white" height="600px" light>
+      <v-card class="mx-auto background" height="600px">
         <v-card-title
           v-if="destinationCoin.amount"
           class="px-4 py-3 mb-5 d-flex secondary"
@@ -17,7 +17,10 @@
             height="10%"
             style="width:100%"
           >
-            <div class="subtitle-1 pa-1">
+            <div
+              class="pa-1 font-weight-bold"
+              :class="[$vuetify.breakpoint.smAndUp ? 'title' : 'subtitle-1']"
+            >
               {{ this.depositCoin.amount }}
               {{ this.depositCoin.selected.symbol.toUpperCase() }}
               <v-icon class="mx-2">mdi-arrow-right</v-icon>

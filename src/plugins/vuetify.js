@@ -14,13 +14,13 @@ export default new Vuetify({
     themes: {
       dark: {
         primary: colors.purple.accent2,
-        secondary: colors.purple.accent1,
+        secondary: '#c25bd4',
         accent: colors.shades.white,
         background: colors.grey.darken3
       },
       light: {
-        primary: colors.blue,
-        secondary: colors.blue.darken1,
+        primary: colors.purple.accent2,
+        secondary: colors.purple.accent1,
         background: colors.shades.white
       }
     }

@@ -1,16 +1,34 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <v-col class="px-5" sm="8" cols="12">
-        <div class="font-weight-light">
-          <h1 class="mb-5 pt-6 font-regular" style="line-height:1.05">
+      <v-col class="px-5" sm="12" md="10" cols="12">
+        <div>
+          <h1
+            class="mb-5 pt-6 font-weight-bold"
+            :class="[
+              $vuetify.breakpoint.mdAndUp
+                ? 'display-3'
+                : $vuetify.breakpoint.smAndUp
+                ? 'display-2'
+                : 'display-1'
+            ]"
+            style="line-height:1.05"
+          >
             Swap Your Cryptocurrency
           </h1>
-          <p class="subtitle-1 mb-4" style="line-height:1.2">
+          <span
+            class="mb-4"
+            :class="[$vuetify.breakpoint.mdAndUp ? 'headline' : 'title']"
+            style="line-height:1.2"
+          >
             Trade 300+ coins without signing up for an account.
-          </p>
+          </span>
         </div>
-        <v-card color="background-secondary" class="pt-10 pb-6" flat>
+        <v-card
+          color="background"
+          class="pt-10 mt-md-10 mt-6 pb-6 d-sm-flex"
+          flat
+        >
           <ExchangeForm
             v-model.number="depositCoin.amount"
             :coins="coins"
@@ -22,7 +40,7 @@
             "
           />
 
-          <div class="text-right">
+          <div class="text-right mt-4 mb-0 mt-sm-8 my-2 mx-sm-3">
             <v-btn text icon @click="swapCoins">
               <!-- TODO: make swap-vertical icon spin once on click -->
               <v-icon size="30">mdi-swap-vertical</v-icon>
@@ -33,7 +51,6 @@
             v-model.number="destinationCoin.amount"
             :coins="coins"
             :exchangeProps="destinationCoin"
-            class="mt-3"
             @select-coin="
               param1 => {
                 this.selectCoin('destination', param1)
@@ -56,14 +73,18 @@
                 destinationCoin.loading
             "
             color="primary"
-            class="mt-4 px-5"
-            height="45px"
+            class="mt-4 px-5 mr-1 font-weight-bold"
+            style="opacity:0.9; letter-spacing: 4px;"
+            :class="[$vuetify.breakpoint.mdAndUp ? 'subtitle-1' : '']"
+            :height="$vuetify.breakpoint.smAndUp ? '45px' : '40px'"
+            :width="$vuetify.breakpoint.smAndUp ? '160px' : '120px'"
             @click.stop="showExchangeDialog = true"
-            depressed
+            :loading="destinationCoin.loading"
           >
-            Proceed
+            <span style="letter-spacing: 1.5px;">Proceed</span>
           </v-btn>
         </div>
+
         <ExchangeDialog
           v-model="showExchangeDialog"
           :destinationCoin="destinationCoin"
@@ -96,6 +117,7 @@ export default {
   name: 'Exchange',
   data() {
     return {
+      large: true,
       showExchangeDialog: false,
       coins: [],
       limit: {},
@@ -219,7 +241,7 @@ export default {
           if (!this.error.pairOffline.state) {
             this.orderDetails.rate = response.data.data.rate
             this.orderDetails.minerFee = response.data.data.minerFee
-            this.destinationCoin.amount = _.round(this.calcRate(), 6)
+            this.destinationCoin.amount = _.round(this.calcRate(), 4)
             this.destinationCoin.loading = false
             this.limit = response.data.data
 

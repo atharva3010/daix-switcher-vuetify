@@ -16,8 +16,7 @@ export default new Vuetify({
         primary: colors.purple.accent2,
         secondary: colors.purple.accent1,
         accent: colors.shades.white,
-        background: colors.grey.darken3,
-        'background-secondary': colors.grey.darken3
+        background: colors.grey.darken3
       },
       light: {
         primary: colors.blue,

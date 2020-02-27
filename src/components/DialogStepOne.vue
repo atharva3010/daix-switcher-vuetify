@@ -1,21 +1,19 @@
 <template>
-  <!-- TODO: add arrow icon pointing right -->
-
   <v-card-text
     id="step-one"
+    style="height:85%;"
     v-if="orderDetails.confirmed === false"
-    style="height:90%"
   >
-    <div class="font-weight-light d-flex flex-column" style="height:100%">
+    <div class="d-flex flex-column px-md-3" style="height:100%">
       <!-- TODO: fix form validation for address -->
       <div class="mb-auto mt-6">
         <v-text-field
           v-model="orderDetails.destinationAddress"
           :label="`Enter ${this.destinationCoin.selected.name} Address`"
-          color="secondary"
+          color="grey darken-3"
           class="pt-6"
           required
-        ></v-text-field>
+        />
       </div>
 
       <div>
@@ -25,9 +23,10 @@
               Do you accept the
               <a href="javascript:" @click.stop="openPage(termsPath)">terms</a>
               and
-              <a href="javascript:" @click.stop="openPage(conditionsPath)"
-                >conditions</a
-              >?
+              <a href="javascript:" @click.stop="openPage(conditionsPath)">
+                conditions
+              </a>
+              ?
             </div>
           </template>
         </v-checkbox>
@@ -35,7 +34,7 @@
           :disabled="!terms || !orderDetails.destinationAddress"
           :loading="orderDetails.loading"
           color="primary"
-          class="mt-4 px-5"
+          class="my-4 px-5"
           height="45px"
           width="100%"
           depressed

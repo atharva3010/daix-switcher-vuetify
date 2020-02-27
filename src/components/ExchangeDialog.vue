@@ -1,19 +1,23 @@
 <template>
-  <div>
-    <v-dialog v-model="show" hide-overlay transition="dialog-bottom-transition">
-      <v-card
-        class="mx-auto background"
-        style="border-radius:25px; position: absolute; bottom: 0;"
-        width="100vw"
-        height="95%"
-      >
+  <v-row justify="center">
+    <v-dialog
+      v-model="show"
+      width="800px"
+      transition="dialog-bottom-transition"
+      :fullscreen="$vuetify.breakpoint.xsOnly"
+    >
+      <v-card class="mx-auto background-white" height="600px" light>
         <v-card-title
           v-if="destinationCoin.amount"
-          class="px-4 py-3 d-flex secondary"
-          style="white-space: nowrap"
+          class="px-4 py-3 mb-5 d-flex secondary"
+          style="white-space: nowrap;"
         >
-          <div class="d-flex justify-space-between" style="width:100%">
-            <div class="font-weight-light title">
+          <div
+            class="d-flex justify-space-between"
+            height="10%"
+            style="width:100%"
+          >
+            <div class="subtitle-1 pa-1">
               {{ this.depositCoin.amount }}
               {{ this.depositCoin.selected.symbol.toUpperCase() }}
               <v-icon class="mx-2">mdi-arrow-right</v-icon>
@@ -41,7 +45,7 @@
         />
       </v-card>
     </v-dialog>
-  </div>
+  </v-row>
 </template>
 
 <script>

@@ -1,85 +1,110 @@
 <template>
   <v-row no-gutters>
-    <v-col cols="6">
-      <v-text-field
-        type="number"
-        height="55px"
-        :value="exchangeProps.amount"
-        @input="$emit('input', $event)"
-        :label="exchangeProps.label + ' ' + this.exchangeProps.selected.name"
-        placeholder="Enter Amount"
-        class="pt-0 mt-0"
-        :readonly="exchangeProps.disabled"
-        :loading="exchangeProps.loading"
-        :disabled="exchangeProps.loading"
-        hide-details
-        outlined
-        color="secondary"
-      />
-    </v-col>
-    <v-col cols="6" class="pl-2">
-      <v-dialog
-        v-model="dialog"
-        fullscreen
-        hide-overlay
-        transition="dialog-bottom-transition"
-      >
-        <template v-slot:activator="{ on }">
-          <v-btn color="grey" height="56px" v-on="on" block outlined
-            ><v-spacer />
-            <v-img
-              class="mr-3"
-              style="max-width:23px; border-radius:50%"
-              :src="exchangeProps.selected.logoUrl"
-            />{{ exchangeProps.selected.symbol }}<v-spacer /><v-icon right
-              >mdi-chevron-down</v-icon
-            ></v-btn
+    <span>{{ exchangeProps.label }} {{ exchangeProps.selected.name }}</span>
+    <v-card class="pa-0 ma-0 d-flex white" width="100%" flat>
+      <v-col cols="6" sm="6" md="6" class="pa-0 ma-0">
+        <v-text-field
+          :value="exchangeProps.amount"
+          :readonly="exchangeProps.disabled"
+          :disabled="exchangeProps.loading"
+          placeholder="Enter Amount"
+          type="number"
+          height="55px"
+          class="pa-0 ma-0"
+          color="secondary"
+          style="border-inline:1px solid black; border-radius:0;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;"
+          hide-details
+          outlined
+          light
+          @input="$emit('input', $event)"
+        />
+      </v-col>
+      <v-col cols="6" sm="6" md="6" class="pa-0 pl-0">
+        <v-dialog
+          v-model="dialog"
+          :fullscreen="$vuetify.breakpoint.xsOnly"
+          width="600px"
+          transition="dialog-bottom-transition"
+        >
+          <template v-slot:activator="{ on }">
+            <v-btn
+              class="black--text"
+              style="border-radius:0;
+              border:1px solid grey;
+              border-bottom-right-radius: 4px;
+              border-top-right-radius: 4px;
+              border-left:none;"
+              height="56px"
+              block
+              outlined
+              v-on="on"
+              ><v-spacer />
+              <v-img
+                class="mr-3"
+                style="max-width:23px; border-radius:50%"
+                :src="exchangeProps.selected.logoUrl"
+              />{{ exchangeProps.selected.symbol }}<v-spacer /><v-icon right
+                >mdi-chevron-down</v-icon
+              ></v-btn
+            >
+          </template>
+          <v-card
+            class="mx-auto background-white"
+            style="width:inherit"
+            height="450px"
+            light
           >
-        </template>
-        <v-card class="mx-auto mt-5" style="border-radius:15px">
-          <div class="text-right">
-            <v-btn icon @click="dialog = false" class="ma-2">
-              <v-icon>mdi-close</v-icon>
-            </v-btn>
-          </div>
-
-          <v-text-field
-            v-model="searchCoin"
-            placeholder="Search.."
-            color="secondary"
-            class="px-8"
-            autofocus
-          />
-          <v-list flat style="overflow-y:scroll" height="80vh">
-            <v-subheader class="pl-8">Available Coins</v-subheader>
-            <v-list-item-group color="primary">
-              <v-list-item
-                @click="selectCoin(coin)"
-                v-for="(coin, coinIndex) in filterCoins"
-                :key="coinIndex"
-                class="px-8"
-              >
-                <v-img
-                  class="mr-3"
-                  style="max-width:30px; border-radius:50%"
-                  :src="coin.logoUrl"
+            <div class="px-0 secondary dark">
+              <div class="pa-3 pb-0 text-right">
+                <v-btn icon @click.stop="dialog = false">
+                  <v-icon>mdi-close</v-icon>
+                </v-btn>
+              </div>
+              <div>
+                <v-text-field
+                  v-model="searchCoin"
+                  placeholder="Search.."
+                  class="px-6 mt-0 pt-0"
+                  autofocus
+                  color="grey darken-3"
                 />
-                <v-list-item-content>
-                  <v-list-item-title
-                    class="ml-4"
-                    style="text-transform:uppercase"
-                    v-text="coin.symbol"
-                  />
-                </v-list-item-content>
-                <v-list-item-content>
-                  <v-list-item-title v-text="coin.name" />
-                </v-list-item-content>
-              </v-list-item>
-            </v-list-item-group>
-          </v-list>
-        </v-card>
-      </v-dialog>
-    </v-col>
+              </div>
+            </div>
+            <div height="100%">
+              <v-list flat style="overflow-y:hidden">
+                <v-subheader class="pl-8">Available Coins</v-subheader>
+                <v-list-item-group color="primary">
+                  <v-list-item
+                    @click="selectCoin(coin)"
+                    v-for="(coin, coinIndex) in filterCoins"
+                    :key="coinIndex"
+                    class="px-8"
+                  >
+                    <v-img
+                      class="mr-3"
+                      style="max-width:30px; border-radius:50%"
+                      :src="coin.logoUrl"
+                    />
+                    <v-list-item-content>
+                      <v-list-item-title
+                        class="ml-4"
+                        style="text-transform:uppercase"
+                        v-text="coin.symbol"
+                      />
+                    </v-list-item-content>
+                    <v-list-item-content>
+                      <v-list-item-title v-text="coin.name" />
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list-item-group>
+              </v-list>
+            </div>
+          </v-card>
+        </v-dialog>
+      </v-col>
+    </v-card>
   </v-row>
 </template>
 
@@ -116,3 +141,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.no-scroll::-webkit-scrollbar {
+  display: none;
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
-  <v-container class="px-5">
-    <v-row justify="center">
-      <v-col cols="12" sm="10">
+  <v-container fluid>
+    <v-row justify="center" class="px-4">
+      <v-col cols="12" md="10">
         <h1
           class="mb-8 pt-6 font-weight-bold"
           :class="[
@@ -16,7 +16,6 @@
           Buy & Sell Bitcoin <br />
           in Cambodia
         </h1>
-
         <span
           class="mb-4"
           :class="[$vuetify.breakpoint.mdAndUp ? 'headline' : 'title']"
@@ -24,14 +23,18 @@
         >
           Exchange directly with us on Telegram and Facebook.
         </span>
+        <div class="mt-10">
+          <img class="pa-4" style="width:200px" src="../assets/facebook.png" />
+          <img class="pa-4" style="width:200px" src="../assets/facebook.png" />
+        </div>
       </v-col>
     </v-row>
-    <v-row justify="center" class="my-12">
-      <v-col cols="12" sm="5">
-        <h4 class="py-6">
+    <v-row justify="center" class="my-12 px-4">
+      <v-col cols="12" md="5" class="mb-10 text-center text-sm-left">
+        <h4 class="pb-4">
           We support local payment methods in Cambodia.
         </h4>
-        <v-chip class="pa-6 pb-5">
+        <v-chip class="pa-6 pb-5" color="bgsecondary">
           <div class="d-flex">
             <div
               v-for="(pm, pmIndex) in paymentMethods"
@@ -48,12 +51,16 @@
           </div>
         </v-chip>
       </v-col>
-      <v-col cols="12" sm="5">
-        <h4 class="py-6">Our Current Exchange Rates</h4>
+      <v-col cols="12" md="5" class="text-center text-sm-left">
+        <h4 class="pb-10">Current Exchange Rates</h4>
       </v-col>
     </v-row>
-    <v-row justify="center">
-      <v-col cols="12" sm="10">
+    <v-row
+      justify="center"
+      class="px-2"
+      style="background-color: var(--v-bgsecondary-base)"
+    >
+      <v-col cols="12" md="10">
         <Articles />
       </v-col>
     </v-row>

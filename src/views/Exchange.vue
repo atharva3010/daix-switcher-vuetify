@@ -21,7 +21,7 @@
             :class="[$vuetify.breakpoint.mdAndUp ? 'headline' : 'title']"
             style="line-height:1.2"
           >
-            Trade 300+ coins without signing up for an account.
+            Trade 300+ coins without ever signing up for an account.
           </span>
         </div>
         <v-card
@@ -42,7 +42,7 @@
 
           <div class="text-right mt-5 mb-0 mt-sm-8 my-2 mx-sm-3">
             <v-btn text icon @click="swapCoins">
-              <!-- TODO: make swap-vertical icon spin once on click -->
+              <!-- TODO: make swap-vertical icon spi 90 once on click -->
               <v-icon size="30">{{
                 $vuetify.breakpoint.smAndUp
                   ? 'mdi-swap-horizontal'
@@ -77,12 +77,12 @@
                 destinationCoin.loading
             "
             color="primary"
-            class="mt-4 px-5 mr-1 font-weight-bold"
+            class="mt-4 px-5 font-weight-bold"
             style="opacity:0.9; letter-spacing: 4px;"
             :class="[$vuetify.breakpoint.mdAndUp ? 'subtitle-1' : '']"
             :height="$vuetify.breakpoint.smAndUp ? '45px' : '40px'"
             :width="$vuetify.breakpoint.smAndUp ? '160px' : '120px'"
-            @click.stop="showExchangeDialog = true"
+            @click.stop="resetOrderDetails"
             :loading="destinationCoin.loading"
           >
             <span style="letter-spacing: 1.5px;">Proceed</span>
@@ -106,7 +106,6 @@ import EventService from '../services/EventService'
 import ExchangeForm from '../components/ExchangeForm'
 import ExchangeDialog from '../components/ExchangeDialog'
 import ExchangeAlert from '../components/ExchangeAlert'
-
 import _ from 'lodash'
 
 export default {
@@ -118,7 +117,6 @@ export default {
   name: 'Exchange',
   data() {
     return {
-      large: true,
       showExchangeDialog: false,
       coins: [],
       limit: {},
@@ -149,16 +147,29 @@ export default {
       orderDetails: {
         exchangeAddress: '',
         orderId: '',
-        confirmed: false,
         loading: false,
         destinationAddress: '',
-        status: 'Awaiting Deposit',
+        status: '',
         rate: 0,
-        minerFee: 0
+        minerFee: 0,
+        terms: false
       }
     }
   },
   methods: {
+    resetOrderDetails() {
+      this.orderDetails = {
+        exchangeAddress: '',
+        orderId: '',
+        loading: false,
+        destinationAddress: '',
+        status: '',
+        rate: 0,
+        minerFee: 0,
+        terms: false
+      }
+      this.showExchangeDialog = true
+    },
     selectCoin(saveToObject, coin) {
       if (saveToObject === 'deposit') {
         this.depositCoin.selected = coin
@@ -200,7 +211,7 @@ export default {
     },
     getCoins() {
       EventService.getCoins().then(response => {
-        this.coins = response.data.data
+        this.coins = Object.freeze(response.data.data)
         if (!localStorage.depositCoin) {
           this.setCoin('btc', this.depositCoin)
         }
@@ -255,7 +266,7 @@ export default {
         this.orderDetails.exchangeAddress =
           response.data.data.exchangeAddress.address
         if (this.orderDetails.orderId) {
-          this.orderDetails.confirmed = true
+          this.updateOrderStatus()
           this.orderDetails.loading = false
         }
       })
@@ -274,18 +285,12 @@ export default {
         }
         this.getRate()
       })
+    },
+    updateOrderStatus() {
+      EventService.getOrderStatus(this.orderDetails.orderId).then(response => {
+        this.orderDetails.status = response.data.data.status
+      })
     }
-
-    // getOrderStatus() {
-    //   this.postRequest(
-    //     'get',
-    //     'order/22222222-6c9e-4c53-9a6d-55e089aebd04',
-    //     'none',
-    //     response => {
-    //       console.log(response)
-    //     }
-    //   )
-    // }
   },
   computed: {},
   watch: {
@@ -320,6 +325,32 @@ export default {
         localStorage.getItem('destSelected')
       )
     }
+    window.setInterval(() => {
+      if (this.orderDetails.orderId) {
+        if (
+          this.orderDetails.orderId === '11111111-6c9e-4c53-9a6d-55e089aebd04'
+        ) {
+          this.orderDetails.orderId = '22222222-6c9e-4c53-9a6d-55e089aebd04'
+        } else if (
+          this.orderDetails.orderId === '22222222-6c9e-4c53-9a6d-55e089aebd04'
+        ) {
+          this.orderDetails.orderId = '33333333-6c9e-4c53-9a6d-55e089aebd04'
+        } else if (
+          this.orderDetails.orderId === '33333333-6c9e-4c53-9a6d-55e089aebd04'
+        ) {
+          this.orderDetails.orderId = '44444444-6c9e-4c53-9a6d-55e089aebd04'
+        } else if (
+          this.orderDetails.orderId === '44444444-6c9e-4c53-9a6d-55e089aebd04'
+        ) {
+          this.orderDetails.orderId = '55555555-6c9e-4c53-9a6d-55e089aebd04'
+        } else if (
+          this.orderDetails.orderId === '55555555-6c9e-4c53-9a6d-55e089aebd04'
+        ) {
+          this.orderDetails.orderId = '66666666-6c9e-4c53-9a6d-55e089aebd04'
+        }
+        this.updateOrderStatus()
+      }
+    }, 3000)
   }
 }
 </script>

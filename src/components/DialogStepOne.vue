@@ -2,7 +2,7 @@
   <v-card-text
     id="step-one"
     style="height:85%;"
-    v-if="orderDetails.confirmed === false"
+    v-if="!this.orderDetails.orderId"
   >
     <div class="d-flex flex-column px-md-3" style="height:100%">
       <!-- TODO: fix form validation for address -->
@@ -16,7 +16,7 @@
       </div>
 
       <div>
-        <v-checkbox v-model="terms" color="green">
+        <v-checkbox v-model="orderDetails.terms" color="success">
           <template v-slot:label>
             <div>
               Do you accept the
@@ -30,7 +30,7 @@
           </template>
         </v-checkbox>
         <v-btn
-          :disabled="!terms || !orderDetails.destinationAddress"
+          :disabled="!orderDetails.terms || !orderDetails.destinationAddress"
           :loading="orderDetails.loading"
           color="primary"
           class="my-4 px-5"
@@ -55,7 +55,6 @@ export default {
   },
   data() {
     return {
-      terms: false,
       termsPath: 'https//google.com',
       conditionsPath: 'https//google.com/hi'
     }

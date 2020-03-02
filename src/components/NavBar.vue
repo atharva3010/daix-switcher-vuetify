@@ -3,12 +3,19 @@
     <v-app-bar color="background" flat app>
       <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
-      <v-toolbar-title style="letter-spacing:4px">{{ title }}</v-toolbar-title>
+      <v-toolbar-title
+        :class="[$vuetify.breakpoint.smAndUp ? 'display-1' : 'headline']"
+        style="letter-spacing:5px !important"
+        >{{ title }}</v-toolbar-title
+      >
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title style="letter-spacing:4px">
+          <v-list-item-title
+            :class="[$vuetify.breakpoint.smAndUp ? 'headline' : 'title']"
+            style="letter-spacing:4px !important"
+          >
             {{ title }}
           </v-list-item-title>
         </v-list-item-content>
@@ -48,12 +55,17 @@ export default {
   name: 'NavBar',
   data() {
     return {
-      title: 'DAIX|swap',
+      title: 'DAIX',
       drawer: false,
       views: [
         {
-          name: 'Exchange',
+          name: 'Buy & Sell',
           path: '/',
+          icon: 'mdi-cash-usd-outline'
+        },
+        {
+          name: 'Swap',
+          path: '/swap',
           icon: 'mdi-swap-vertical-bold'
         },
         {

@@ -45,7 +45,12 @@
                 class="mr-3"
                 style="max-width:23px; border-radius:50%"
                 :src="exchangeProps.selected.logoUrl"
-              />{{ exchangeProps.selected.symbol }}<v-spacer /><v-icon right
+              />
+
+              {{ exchangeProps.selected.symbol }}
+
+              <!-- TODO: fix the width no matter how long coin symbol is -->
+              <v-spacer /><v-icon size="28" right
                 >mdi-chevron-down</v-icon
               ></v-btn
             >
@@ -71,33 +76,35 @@
               </div>
             </div>
             <div height="100%">
-              <v-list flat style="overflow-y:hidden" class="background">
-                <v-subheader class="pl-8">Available Coins</v-subheader>
-                <v-list-item-group color="primary">
-                  <v-list-item
-                    @click="selectCoin(coin)"
-                    v-for="(coin, coinIndex) in filterCoins"
-                    :key="coinIndex"
-                    class="px-8"
-                  >
-                    <v-img
-                      class="mr-3"
-                      style="max-width:30px; border-radius:50%"
-                      :src="coin.logoUrl"
-                    />
-                    <v-list-item-content>
-                      <v-list-item-title
-                        class="ml-4"
-                        style="text-transform:uppercase"
-                        v-text="coin.symbol"
+              <keep-alive>
+                <v-list flat style="overflow-y:hidden" class="background">
+                  <v-subheader class="pl-8">Available Coins</v-subheader>
+                  <v-list-item-group color="primary">
+                    <v-list-item
+                      @click="selectCoin(coin)"
+                      v-for="(coin, coinIndex) in filterCoins"
+                      :key="coinIndex"
+                      class="px-8"
+                    >
+                      <v-img
+                        class="mr-3"
+                        style="max-width:30px; border-radius:50%"
+                        :src="coin.logoUrl"
                       />
-                    </v-list-item-content>
-                    <v-list-item-content>
-                      <v-list-item-title v-text="coin.name" />
-                    </v-list-item-content>
-                  </v-list-item>
-                </v-list-item-group>
-              </v-list>
+                      <v-list-item-content>
+                        <v-list-item-title
+                          class="ml-4"
+                          style="text-transform:uppercase"
+                          v-text="coin.symbol"
+                        />
+                      </v-list-item-content>
+                      <v-list-item-content>
+                        <v-list-item-title v-text="coin.name" />
+                      </v-list-item-content>
+                    </v-list-item>
+                  </v-list-item-group>
+                </v-list>
+              </keep-alive>
             </div>
           </v-card>
         </v-dialog>
@@ -116,6 +123,7 @@ export default {
 
   data: () => ({
     dialog: false,
+    loadList: false,
     searchCoin: ''
   }),
   computed: {
@@ -140,8 +148,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.no-scroll::-webkit-scrollbar {
-  display: none;
-}
-</style>
+<style scoped></style>

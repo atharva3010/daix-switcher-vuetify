@@ -20,9 +20,12 @@ export default {
     return apiClient.post('/rate', data)
   },
   getOrder(data) {
-    return apiClient.post('order', data)
+    return apiClient.post('/order', data)
   },
   getAvailable(data) {
-    return apiClient.post('pairs', data)
+    return apiClient.post('/pairs', data)
+  },
+  getOrderStatus(id) {
+    return apiClient.get('/order/' + id)
   }
 }

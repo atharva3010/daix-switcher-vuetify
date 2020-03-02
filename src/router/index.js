@@ -1,14 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Exchange from '../views/Exchange.vue'
+import BuyAndSell from '../views/BuyAndSell.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
+    name: 'Buy-sell',
+    component: BuyAndSell
+  },
+  {
+    path: '/swap',
     name: 'Exchange',
-    component: Exchange
+    component: () =>
+      import(/* webpackChunkName: "exchange" */ '../views/Exchange.vue')
   },
   {
     path: '/about',

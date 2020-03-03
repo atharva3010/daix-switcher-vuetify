@@ -3,16 +3,16 @@
     <h2
       class="text-center my-10 font-weight-light"
       :class="$vuetify.breakpoint.smAndUp ? 'display-1' : 'headline'"
-      style="letter-spacing:2px !important"
+      style="letter-spacing:1px !important"
     >
-      DAIX Tutorials
+      Learn About Cryptocurrency
     </h2>
     <div v-for="(article, articleIndex) in articles" :key="articleIndex">
       <v-hover v-slot:default="{ hover }" close-delay="200">
         <a href="" style="text-decoration: none;">
           <v-card
-            :elevation="hover ? 16 : 0"
-            class="d-flex justify-space-between my-1"
+            :elevation="hover ? 8 : 0"
+            class="d-flex justify-space-between"
             color="bgsecondary"
             flat
           >
@@ -50,19 +50,19 @@ export default {
         1: {
           title: 'Get a basic understanding of Bitcoin',
           path: '/basic-understanding-of-bitcoin',
-          img: require('../articles/assets/what-is-btc.jpg'),
+          img: require('../assets/articles/what-is-btc.jpg'),
           divider: true
         },
         2: {
           title: '6 Things you can do with Bicoin',
           path: '/6-things-you-can-do-with-bitcoin',
-          img: require('../articles/assets/what-is-btc.jpg'),
+          img: require('../assets/articles/btc-wallet.jpg'),
           divider: true
         },
         3: {
           title: '6 Things you can do with Bitcoin',
           path: '/6-things-you-can-do-with-bitcoin',
-          img: require('../articles/assets/what-is-btc.jpg')
+          img: require('../assets/articles/use-btc.png')
         }
       }
     }

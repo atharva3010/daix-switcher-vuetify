@@ -3,7 +3,7 @@
     <v-row justify="center" class="px-4">
       <v-col cols="12" md="10">
         <h1
-          class="mb-8 pt-6 font-weight-bold"
+          class="mb-12 py-6 font-weight-bold"
           :class="[
             $vuetify.breakpoint.mdAndUp
               ? 'display-3'
@@ -17,24 +17,23 @@
           in Cambodia
         </h1>
         <span
-          class="mb-4"
+          class="pt-8"
           :class="[$vuetify.breakpoint.mdAndUp ? 'headline' : 'title']"
           style="line-height:1.2"
         >
           Exchange directly with us on Telegram and Facebook.
         </span>
-        <div class="mt-10">
-          <img class="pa-4" style="width:200px" src="../assets/facebook.png" />
-          <img class="pa-4" style="width:200px" src="../assets/facebook.png" />
+        <div class="mt-6">
+          <ConnectButton />
         </div>
       </v-col>
     </v-row>
-    <v-row justify="center" class="my-12 px-4">
+    <v-row justify="center" class="my-6 px-4">
       <v-col cols="12" md="5" class="mb-10 text-center text-sm-left">
         <h4 class="pb-4">
           We support local payment methods in Cambodia.
         </h4>
-        <v-chip class="pa-6 pb-5" color="bgsecondary">
+        <v-chip class="pa-6 pb-5 py-7" color="bgsecondary">
           <div class="d-flex">
             <div
               v-for="(pm, pmIndex) in paymentMethods"
@@ -68,29 +67,31 @@
 </template>
 
 <script>
+import ConnectButton from '../components/ConnectButton'
 import Articles from '../components/Articles'
 
 export default {
   name: 'BuyAndSell',
   components: {
-    Articles
+    Articles,
+    ConnectButton
   },
   data() {
     return {
       paymentMethods: {
         wing: {
           logo: require('../assets/wing.png'),
-          link: 'https://google.com/hi',
+          link: 'https://www.wingmoney.com/en/personal/transfer-money/',
           class: 'pr-5'
         },
         aba: {
           logo: require('../assets/aba.png'),
-          link: 'https://google.com/hii',
+          link: 'https://www.google.com/search?q=aba+bank',
           class: 'pr-5'
         },
         truemoney: {
           logo: require('../assets/truemoney.png'),
-          link: 'https://google.com/hiii',
+          link: 'https://www.truemoney.com.kh/',
           class: 'pr-0'
         }
       }

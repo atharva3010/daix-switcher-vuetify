@@ -30,6 +30,13 @@ const routes = [
     name: 'My Orders',
     component: () =>
       import(/* webpackChunkName: "orders" */ '../views/Orders.vue')
+  },
+  // Articles
+  {
+    path: '/posts',
+    name: 'Posts',
+    component: () =>
+      import(/* webpackChunkName: "posts" */ '../views/PostTemplate.vue')
   }
 ]
 

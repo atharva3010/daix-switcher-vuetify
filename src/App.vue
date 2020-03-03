@@ -7,20 +7,20 @@
     <v-content>
       <router-view />
     </v-content>
-    <Telegram />
+    <!-- <Telegram /> -->
   </v-app>
 </template>
 
 <script>
 import NavBar from '@/components/NavBar'
-import Telegram from '@/components/Telegram'
+// import Telegram from '@/components/Telegram'
 
 export default {
   name: 'App',
 
   components: {
-    NavBar,
-    Telegram
+    NavBar
+    // Telegram
   },
   computed: {
     theme() {

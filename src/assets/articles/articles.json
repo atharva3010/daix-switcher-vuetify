@@ -13,15 +13,15 @@
       "date": "October 15, 2019",
       "title": "6 Things you can do with Bicoin",
       "description": "You probably already know that Bitcoin is the most popular cryptocurrency with the highest market cap. Even in Cambodia, the number of Bitcoin users keeps increasing every day, and ...",
-      "img": "btc-wallet.jpg",
+      "img": "use-btc.png",
       "divider": "true"
     },
     {
-      "id": "basic-undeanding-of-bitcoin",
+      "id": "what-is-a-bitcoin-wallet",
       "date": "October 5, 2019",
-      "title": "Get a basic ustanding of Bitcoin",
-      "description": "If you are new todigital currency space, it can be challenging to navigate all of the terms, concepts, and types of digital assets that are available. However, there is no need to ...",
-      "img": "use-btc.png"
+      "title": "What is a Bitcoin Wallet?",
+      "description": "A Bitcoin wallet is a wallet for your Bitcoin, and you will need one so that we can send you your Bitcoin after you have purchased them on DAIX. It stores information such as your ...",
+      "img": "btc-wallet.jpg"
     }
   ]
 }

@@ -33,7 +33,7 @@
         <h4 class="pb-4 px-1 overline">
           We support local payment methods in Cambodia
         </h4>
-        <v-chip class="pa-6 pb-5 py-7" color="bgsecondary">
+        <v-chip class="" color="bgsecondary">
           <div class="d-flex">
             <div
               v-for="(pm, pmIndex) in paymentMethods"

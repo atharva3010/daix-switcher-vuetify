@@ -25,7 +25,7 @@ export default new Vuetify({
         primary: colors.purple.accent2,
         secondary: colors.purple.accent1,
         background: colors.shades.white,
-        bgsecondary: '#f2f2f2',
+        bgsecondary: '#fafafa',
         success: colors.lightGreen.accent4
       }
     }

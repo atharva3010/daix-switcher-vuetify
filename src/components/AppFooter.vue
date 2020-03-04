@@ -1,6 +1,6 @@
 <template>
   <v-footer padless>
-    <v-card flat tile class="text-center" width="100%" color="background">
+    <v-card flat tile class="text-center" width="100%" color="bgsecondary">
       <v-divider></v-divider>
       <v-card-text>
         <v-btn
@@ -30,7 +30,7 @@ export default {
       links: {
         facebook: 'https://www.facebook.com/daixcambodia',
         telegram: 'https://t.me/daixco',
-        twitter: ''
+        twitter: 'https://twitter.com/DAIXCambodia'
       }
     }
   },

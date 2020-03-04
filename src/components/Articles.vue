@@ -37,18 +37,16 @@
             >
               {{ article.description }}
             </div>
-            <div>
-              <img
-                :style="
-                  $vuetify.breakpoint.smAndUp
-                    ? 'max-width:240px'
-                    : 'max-width:130px'
-                "
-                :src="loadImg(article.img)"
-                style="border-radius:1px; object-fit: contain;"
-                class="pr-5"
-              />
-            </div>
+            <img
+              :style="
+                $vuetify.breakpoint.smAndUp
+                  ? 'max-width:240px'
+                  : 'max-width:130px'
+              "
+              :src="loadImg(article.img)"
+              style="border-radius:1px; object-fit: contain;"
+              class="pr-5 mb-0"
+            />
           </v-card>
         </v-hover>
 

@@ -1,8 +1,23 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import BuyAndSell from '../views/BuyAndSell.vue'
+import blog from '../assets/articles/articles.json'
 
 Vue.use(VueRouter)
+
+const articles = Object.keys(blog).map(section => {
+  const children = blog[section].map(child => ({
+    path: child.id,
+    name: child.id,
+    component: () => import(`../assets/articles/${child.id}.md`)
+  }))
+  return {
+    path: `/articles`,
+    name: section,
+    component: () => import('../templates/Article.vue'),
+    children
+  }
+})
 
 const routes = [
   {
@@ -19,9 +34,6 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
@@ -31,13 +43,13 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "orders" */ '../views/Orders.vue')
   },
-  // Articles
   {
-    path: '/posts',
-    name: 'Posts',
+    path: '/blog',
+    name: 'My Blog',
     component: () =>
-      import(/* webpackChunkName: "posts" */ '../views/PostTemplate.vue')
-  }
+      import(/* webpackChunkName: "orders" */ '../views/Blog.vue')
+  },
+  ...articles
 ]
 
 const router = new VueRouter({

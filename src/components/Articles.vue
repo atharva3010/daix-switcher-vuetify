@@ -7,64 +7,75 @@
     >
       Learn About Cryptocurrency
     </h2>
-    <div v-for="(article, articleIndex) in articles" :key="articleIndex">
-      <v-hover v-slot:default="{ hover }" close-delay="200">
-        <a href="" style="text-decoration: none;">
+    <div v-for="(section, index) in Object.keys(entries)" :key="index">
+      <div
+        class="section"
+        style="cursor:pointer"
+        v-for="article in entries[section]"
+        :key="article.id"
+        @click="$router.push({ name: article.id })"
+      >
+        <v-hover v-slot:default="{ hover }" close-delay="200">
           <v-card
             :elevation="hover ? 8 : 0"
-            class="d-flex justify-space-between"
-            color="bgsecondary"
+            class="d-flex justify-space-between py-8"
+            color="background"
             flat
           >
             <div
               :class="$vuetify.breakpoint.smAndUp ? 'headline' : 'sub-title'"
-              class="pr-6 py-8 pl-2"
+              class="pr-6 pl-5"
+              :style="$vuetify.breakpoint.smAndUp ? 'width:40%' : 'width:80%'"
             >
               {{ article.title }}
+              <br /><span class="overline">{{ article.date }}</span>
             </div>
-            <img
-              class="py-8 pr-1"
-              :style="
-                $vuetify.breakpoint.smAndUp
-                  ? 'max-width:240px'
-                  : 'max-width:130px'
-              "
-              :src="article.img"
-              style="border-radius:5px; object-fit: contain;"
-            />
+            <div
+              v-if="$vuetify.breakpoint.smAndUp"
+              style="width:50%"
+              class="px-8 ma-0 body-2"
+            >
+              {{ article.description }}
+            </div>
+            <div>
+              <img
+                :style="
+                  $vuetify.breakpoint.smAndUp
+                    ? 'max-width:240px'
+                    : 'max-width:130px'
+                "
+                :src="loadImg(article.img)"
+                style="border-radius:1px; object-fit: contain;"
+                class="pr-5"
+              />
+            </div>
           </v-card>
-        </a>
-      </v-hover>
+        </v-hover>
 
-      <v-divider v-if="article.divider"></v-divider>
+        <v-divider v-if="article.divider"></v-divider>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Articles from '@/assets/articles/articles.json'
+
+const images = require.context('@/assets/articles', false, /\.png$|\.jpg$/)
+
 export default {
   components: {},
   data() {
-    return {
-      articles: {
-        1: {
-          title: 'Get a basic understanding of Bitcoin',
-          path: '/basic-understanding-of-bitcoin',
-          img: require('../assets/articles/what-is-btc.jpg'),
-          divider: true
-        },
-        2: {
-          title: '6 Things you can do with Bicoin',
-          path: '/6-things-you-can-do-with-bitcoin',
-          img: require('../assets/articles/btc-wallet.jpg'),
-          divider: true
-        },
-        3: {
-          title: '6 Things you can do with Bitcoin',
-          path: '/6-things-you-can-do-with-bitcoin',
-          img: require('../assets/articles/use-btc.png')
-        }
-      }
+    return {}
+  },
+  computed: {
+    entries() {
+      return Articles
+    }
+  },
+  methods: {
+    loadImg(imgPath) {
+      return images('./' + imgPath)
     }
   }
 }

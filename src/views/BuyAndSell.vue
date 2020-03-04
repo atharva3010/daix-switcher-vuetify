@@ -30,8 +30,8 @@
     </v-row>
     <v-row justify="center" class="my-6 px-4">
       <v-col cols="12" md="5" class="mb-10 text-center text-sm-left">
-        <h4 class="pb-4">
-          We support local payment methods in Cambodia.
+        <h4 class="pb-4 px-1 overline">
+          We support local payment methods in Cambodia
         </h4>
         <v-chip class="pa-6 pb-5 py-7" color="bgsecondary">
           <div class="d-flex">
@@ -51,13 +51,22 @@
         </v-chip>
       </v-col>
       <v-col cols="12" md="5" class="text-center text-sm-left">
-        <h4 class="pb-10">Current Exchange Rates</h4>
+        <h4 class="pb-10 px-1 overline">Current Exchange Rates</h4>
       </v-col>
     </v-row>
     <v-row
       justify="center"
-      class="px-2"
+      class="px-2 pb-12"
       style="background-color: var(--v-bgsecondary-base)"
+    >
+      <v-col cols="12" md="10">
+        <FAQ />
+      </v-col>
+    </v-row>
+    <v-row
+      justify="center"
+      class="px-2 mb-12"
+      style="background-color: var(--v-background-base)"
     >
       <v-col cols="12" md="10">
         <Articles />
@@ -67,6 +76,7 @@
 </template>
 
 <script>
+import FAQ from '../components/FAQ.vue'
 import ConnectButton from '../components/ConnectButton'
 import Articles from '../components/Articles'
 
@@ -74,7 +84,8 @@ export default {
   name: 'BuyAndSell',
   components: {
     Articles,
-    ConnectButton
+    ConnectButton,
+    FAQ
   },
   data() {
     return {

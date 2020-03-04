@@ -8,19 +8,20 @@
       <router-view />
     </v-content>
     <!-- <Telegram /> -->
+    <AppFooter />
   </v-app>
 </template>
 
 <script>
+import AppFooter from './components/AppFooter.vue'
 import NavBar from '@/components/NavBar'
-// import Telegram from '@/components/Telegram'
 
 export default {
   name: 'App',
 
   components: {
-    NavBar
-    // Telegram
+    NavBar,
+    AppFooter
   },
   computed: {
     theme() {

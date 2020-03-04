@@ -4,21 +4,21 @@
       class="mb-6 mr-sm-6"
       rounded
       :color="facebook.color"
-      x-large="$vuetify.breakpoint.smAndUp"
+      large
       @click="startMessage(facebook.link)"
     >
-      <v-icon large left class="mr-5">{{ facebook.icon }}</v-icon>
-      Message us on Facebook
+      <v-icon color="white" large left class="mr-5">{{ facebook.icon }}</v-icon>
+      <span style="color:white">Message us on Facebook</span>
     </v-btn>
     <v-btn
       class="mb-6"
       rounded
       :color="telegram.color"
-      x-large="$vuetify.breakpoint.smAndUp"
+      large
       @click="startMessage(telegram.link)"
     >
-      <v-icon large left class="mr-5">{{ telegram.icon }}</v-icon>
-      Message us on Telegram
+      <v-icon color="white" large left class="mr-5">{{ telegram.icon }}</v-icon>
+      <span style="color:white">Message us on Telegram</span>
     </v-btn>
   </div>
 </template>

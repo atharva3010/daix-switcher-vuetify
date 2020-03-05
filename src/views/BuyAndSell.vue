@@ -2,6 +2,7 @@
   <v-container fluid>
     <v-row justify="center" class="px-4">
       <v-col cols="12" md="10">
+        <h1>{{ $t('welcomeMsg') }}</h1>
         <h1
           class="mb-12 py-6 font-weight-bold"
           :class="[
@@ -33,7 +34,7 @@
         <h4 class="pb-4 px-1 overline">
           We support local payment methods in Cambodia
         </h4>
-        <v-chip class="" color="bgsecondary">
+        <v-chip class="pt-6 pb-5 py-7" color="bgsecondary">
           <div class="d-flex">
             <div
               v-for="(pm, pmIndex) in paymentMethods"

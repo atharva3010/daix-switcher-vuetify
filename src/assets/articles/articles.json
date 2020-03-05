@@ -2,6 +2,7 @@
   "Articles": [
     {
       "id": "basic-understanding-of-bitcoin",
+      "kh": "basic-understanding-of-bitcoin-kh",
       "date": "December 18, 2019",
       "title": "Get a basic understanding of Bitcoin",
       "description": "If you are new to the digital currency space, it can be challenging to navigate all of the terms, concepts, and types of digital assets that are available. However, there is no need to ...",

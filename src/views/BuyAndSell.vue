@@ -2,7 +2,6 @@
   <v-container fluid>
     <v-row justify="center" class="px-4">
       <v-col cols="12" md="10">
-        <h1>{{ $t('welcomeMsg') }}</h1>
         <h1
           class="mb-12 py-6 font-weight-bold"
           :class="[

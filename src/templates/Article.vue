@@ -3,7 +3,9 @@
     <v-row justify="center" class="px-4">
       <v-col cols="12" md="8" class="mb-8 markdown-style">
         <router-view class="pb-8" />
-        <router-link to="/" tag="a" class="back">&laquo; Back</router-link>
+        <router-link :to="`/${$i18n.locale}`" tag="a" class="back"
+          >&laquo; Back</router-link
+        >
       </v-col>
     </v-row>
   </v-container>

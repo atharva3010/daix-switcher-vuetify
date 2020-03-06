@@ -1,5 +1,6 @@
 module.exports = {
   transpileDependencies: ['vuetify'],
+
   chainWebpack(config) {
     config.module
       .rule('md')
@@ -12,5 +13,14 @@ module.exports = {
       .options({
         raw: true
       })
+  },
+
+  pluginOptions: {
+    i18n: {
+      locale: 'en',
+      fallbackLocale: 'en',
+      localeDir: 'locales',
+      enableInSFC: false
+    }
   }
 }

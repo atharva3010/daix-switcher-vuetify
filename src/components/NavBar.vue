@@ -2,12 +2,20 @@
   <div id="nav">
     <v-app-bar color="background" flat app>
       <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon>
+      <LangSwitcher />
       <v-spacer></v-spacer>
+
       <v-toolbar-title
         :class="[$vuetify.breakpoint.smAndUp ? 'display-1' : 'headline']"
         style="letter-spacing:5px !important"
-        >{{ title }}</v-toolbar-title
       >
+        <router-link
+          style="text-decoration:none; color: inherit;"
+          :to="`/${$i18n.locale}`"
+        >
+          {{ title }}
+        </router-link>
+      </v-toolbar-title>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
@@ -25,7 +33,7 @@
       </v-list-item>
       <v-list-item
         color="secondary"
-        :to="view.path"
+        :to="'/' + $i18n.locale + view.path"
         v-for="(view, i) in views"
         :key="i"
         link
@@ -51,8 +59,13 @@
 </template>
 
 <script>
+import LangSwitcher from './LangSwitcher.vue'
+
 export default {
   name: 'NavBar',
+  components: {
+    LangSwitcher
+  },
   data() {
     return {
       title: 'DAIX',
@@ -60,7 +73,7 @@ export default {
       views: [
         {
           name: 'Buy & Sell',
-          path: '/',
+          path: '',
           icon: 'mdi-cash-usd-outline'
         },
         {

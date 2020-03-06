@@ -22,16 +22,16 @@
           color="primary"
           width="2"
           size="17"
-          class="mr-2"
+          class="mr-1"
           v-if="iconStatus() === 'loading'"
         />
-        <v-icon color="success" class="mr-2" v-if="iconStatus() === 'complete'">
+        <v-icon color="success" class="mr-1" v-if="iconStatus() === 'complete'">
           mdi-check-circle-outline
         </v-icon>
-        <v-icon color="red" class="mr-2" v-if="iconStatus() === 'timeout'">
+        <v-icon color="red" class="mr-1" v-if="iconStatus() === 'timeout'">
           mdi-close-circle-outline
         </v-icon>
-        {{ orderStatus() }}
+        {{ orderStatus().toUpperCase() }}
       </v-chip>
     </div>
     <qrcode

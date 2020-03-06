@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import BuyAndSell from '../views/BuyAndSell.vue'
 import blog from '../assets/articles/articles.json'
+import i18n from '@/i18n'
 
 Vue.use(VueRouter)
 
@@ -22,28 +23,42 @@ const articles = Object.keys(blog).map(section => {
 const routes = [
   {
     path: '/',
-    name: 'Buy-sell',
-    component: BuyAndSell
+    redirect: `/${i18n.locale}`
   },
   {
-    path: '/swap',
-    name: 'Exchange',
-    component: () =>
-      import(/* webpackChunkName: "exchange" */ '../views/Exchange.vue')
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: () =>
-      import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-  {
-    path: '/orders',
-    name: 'My Orders',
-    component: () =>
-      import(/* webpackChunkName: "orders" */ '../views/Orders.vue')
-  },
-  ...articles
+    path: '/:lang',
+    component: {
+      render(c) {
+        return c('router-view')
+      }
+    },
+    children: [
+      {
+        path: '/',
+        name: 'Buy-sell',
+        component: BuyAndSell
+      },
+      {
+        path: 'swap',
+        name: 'Exchange',
+        component: () =>
+          import(/* webpackChunkName: "exchange" */ '../views/Exchange.vue')
+      },
+      {
+        path: 'about',
+        name: 'About',
+        component: () =>
+          import(/* webpackChunkName: "about" */ '../views/About.vue')
+      },
+      {
+        path: 'orders',
+        name: 'My Orders',
+        component: () =>
+          import(/* webpackChunkName: "orders" */ '../views/Orders.vue')
+      },
+      ...articles
+    ]
+  }
 ]
 
 const router = new VueRouter({

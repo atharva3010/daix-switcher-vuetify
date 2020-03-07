@@ -13,7 +13,7 @@ const articles = Object.keys(blog).map(section => {
   }))
   return {
     path: `/:lang/articles`,
-    name: section,
+    name: `Articles in ${section}`,
     component: () => import('../templates/Article.vue'),
     children
   }

@@ -45,9 +45,11 @@
       </v-expansion-panel>
     </v-expansion-panels>
     <v-expansion-panels>
-      <h3 class="overline pb-1" style="font-size:0.8rem !important">
-        About buying and selling Cryptocurrency
-      </h3>
+      <div class="text-center">
+        <h3 class="overline pb-1" style="font-size:0.8rem !important">
+          About buying and selling
+        </h3>
+      </div>
       <v-expansion-panel v-for="(item, i) in aboutBuySell" :key="i">
         <v-expansion-panel-header
           color="background"

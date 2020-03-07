@@ -48,7 +48,6 @@
 
 <script>
 import EventServiceCMC from '../services/EventServiceCMC'
-import EventService from '../services/EventService'
 import _ from 'lodash'
 
 export default {

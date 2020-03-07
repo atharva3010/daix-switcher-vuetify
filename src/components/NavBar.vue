@@ -2,7 +2,7 @@
   <div id="nav">
     <v-app-bar color="background" flat app>
       <v-app-bar-nav-icon @click.stop="drawer = true"></v-app-bar-nav-icon>
-      <LangSwitcher />
+      <LangSwitcher v-if="!$route.path.includes('articles')" />
       <v-spacer></v-spacer>
 
       <v-toolbar-title

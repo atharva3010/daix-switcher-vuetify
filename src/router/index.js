@@ -1,13 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import BuyAndSell from '../views/BuyAndSell.vue'
-import blog from '../assets/articles/articles.json'
 import i18n from '@/i18n'
 
 Vue.use(VueRouter)
-
+const blog = i18n.messages
 const articles = Object.keys(blog).map(section => {
-  const children = blog[section].map(child => ({
+  const children = blog[section].Articles.map(child => ({
     path: child.id,
     name: child.id,
     component: () => import(`../assets/articles/${child.id}.md`)
@@ -19,7 +18,6 @@ const articles = Object.keys(blog).map(section => {
     children
   }
 })
-
 const routes = [
   {
     path: '/',
@@ -60,7 +58,6 @@ const routes = [
     ]
   }
 ]
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_KEY = 'Y72jsy9iwD5uiazajayqp190dhjabn3kjauis'
+const API_KEY = 'ppQ2i1RKeg25x2bl3a2eAIJugeoWhPf56QEVNKLa'
 
 const apiClient = axios.create({
   baseURL: 'https://api.coinswitch.co/v2',

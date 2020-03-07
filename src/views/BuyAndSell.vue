@@ -29,6 +29,12 @@
       </v-col>
     </v-row>
     <v-row justify="center" class="my-6 px-4">
+      <v-col cols="12" md="5" class="mb-10 mr-4 text-center text-sm-left">
+        <h4 class="pb-4 px-1 overline" style="font-size: 1rem">
+          Current Exchange Rates
+        </h4>
+        <RatesTable />
+      </v-col>
       <v-col cols="12" md="5" class="mb-10 text-center text-sm-left">
         <h4 class="pb-4 px-1 overline">
           We support local payment methods in Cambodia
@@ -49,10 +55,6 @@
             </div>
           </div>
         </v-chip>
-      </v-col>
-      <v-col cols="12" md="5" class="text-center text-sm-left">
-        <h4 class="pb-4 px-1 overline">Current Exchange Rates</h4>
-        <RatesTable />
       </v-col>
     </v-row>
     <v-row

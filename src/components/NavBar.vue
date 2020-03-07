@@ -18,42 +18,44 @@
       </v-toolbar-title>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" app>
-      <v-list-item>
-        <v-list-item-content>
-          <v-list-item-title
-            :class="[$vuetify.breakpoint.smAndUp ? 'headline' : 'title']"
-            style="letter-spacing:4px !important"
-          >
-            {{ title }}
-          </v-list-item-title>
-        </v-list-item-content>
-        <v-list-item-icon @click.stop="drawer = false" link>
-          <v-icon>mdi-close</v-icon>
-        </v-list-item-icon>
-      </v-list-item>
-      <v-list-item
-        color="secondary"
-        :to="'/' + $i18n.locale + view.path"
-        v-for="(view, i) in views"
-        :key="i"
-        link
-      >
-        <v-list-item-icon class="mr-3">
-          <v-icon class="list-icon" dense>{{ view.icon }}</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title v-text="view.name"></v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item>
-        <v-switch
-          v-model="$vuetify.theme.dark"
-          hide-details
-          inset
-          label="Theme Dark"
-          color="accent"
-        ></v-switch>
-      </v-list-item>
+      <v-list flat max="1">
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title
+              :class="[$vuetify.breakpoint.smAndUp ? 'headline' : 'title']"
+              style="letter-spacing:4px !important"
+            >
+              {{ title }}
+            </v-list-item-title>
+          </v-list-item-content>
+          <v-list-item-icon @click.stop="drawer = false" link>
+            <v-icon>mdi-close</v-icon>
+          </v-list-item-icon>
+        </v-list-item>
+        <v-list-item
+          color="secondary"
+          :to="'/' + $i18n.locale + view.path"
+          v-for="(view, i) in views"
+          :key="i"
+          link
+        >
+          <v-list-item-icon class="mr-3">
+            <v-icon class="list-icon" dense>{{ view.icon }}</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title v-text="view.name"></v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item>
+          <v-switch
+            v-model="$vuetify.theme.dark"
+            hide-details
+            inset
+            label="Theme Dark"
+            color="accent"
+          ></v-switch>
+        </v-list-item>
+      </v-list>
     </v-navigation-drawer>
   </div>
 </template>
@@ -73,7 +75,7 @@ export default {
       views: [
         {
           name: 'Buy & Sell',
-          path: '',
+          path: '/',
           icon: 'mdi-cash-usd-outline'
         },
         {

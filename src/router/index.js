@@ -35,12 +35,12 @@ const routes = [
     children: [
       {
         path: '/',
-        name: 'Buy-sell',
+        name: 'Buy & Sell',
         component: BuyAndSell
       },
       {
         path: 'swap',
-        name: 'Exchange',
+        name: 'Swap',
         component: () =>
           import(/* webpackChunkName: "exchange" */ '../views/Exchange.vue')
       },

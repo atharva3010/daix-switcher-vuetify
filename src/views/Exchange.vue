@@ -327,27 +327,6 @@ export default {
     }
     window.setInterval(() => {
       if (this.orderDetails.orderId) {
-        if (
-          this.orderDetails.orderId === '11111111-6c9e-4c53-9a6d-55e089aebd04'
-        ) {
-          this.orderDetails.orderId = '22222222-6c9e-4c53-9a6d-55e089aebd04'
-        } else if (
-          this.orderDetails.orderId === '22222222-6c9e-4c53-9a6d-55e089aebd04'
-        ) {
-          this.orderDetails.orderId = '33333333-6c9e-4c53-9a6d-55e089aebd04'
-        } else if (
-          this.orderDetails.orderId === '33333333-6c9e-4c53-9a6d-55e089aebd04'
-        ) {
-          this.orderDetails.orderId = '44444444-6c9e-4c53-9a6d-55e089aebd04'
-        } else if (
-          this.orderDetails.orderId === '44444444-6c9e-4c53-9a6d-55e089aebd04'
-        ) {
-          this.orderDetails.orderId = '55555555-6c9e-4c53-9a6d-55e089aebd04'
-        } else if (
-          this.orderDetails.orderId === '55555555-6c9e-4c53-9a6d-55e089aebd04'
-        ) {
-          this.orderDetails.orderId = '66666666-6c9e-4c53-9a6d-55e089aebd04'
-        }
         this.updateOrderStatus()
       }
     }, 3000)

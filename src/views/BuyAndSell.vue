@@ -51,7 +51,8 @@
         </v-chip>
       </v-col>
       <v-col cols="12" md="5" class="text-center text-sm-left">
-        <h4 class="pb-10 px-1 overline">Current Exchange Rates</h4>
+        <h4 class="pb-4 px-1 overline">Current Exchange Rates</h4>
+        <RatesTable />
       </v-col>
     </v-row>
     <v-row
@@ -65,7 +66,7 @@
     </v-row>
     <v-row
       justify="center"
-      class="px-2 mb-12"
+      class="mb-12"
       style="background-color: var(--v-background-base)"
     >
       <v-col cols="12" md="10">
@@ -76,6 +77,7 @@
 </template>
 
 <script>
+import RatesTable from '../components/RatesTable.vue'
 import FAQ from '../components/FAQ.vue'
 import ConnectButton from '../components/ConnectButton'
 import Articles from '../components/Articles'
@@ -85,7 +87,8 @@ export default {
   components: {
     Articles,
     ConnectButton,
-    FAQ
+    FAQ,
+    RatesTable
   },
   data() {
     return {

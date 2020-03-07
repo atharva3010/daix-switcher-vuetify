@@ -7,69 +7,60 @@
     >
       Learn About Cryptocurrency
     </h2>
-    <div v-for="(section, index) in Object.keys(entries)" :key="index">
-      <div
-        class="section"
-        style="cursor:pointer"
-        v-for="article in entries[section]"
-        :key="article.id"
-        @click="$router.push({ name: article.id })"
-      >
-        <v-hover v-slot:default="{ hover }" close-delay="200">
-          <v-card
-            :elevation="hover ? 8 : 0"
-            class="d-flex justify-space-between py-8"
-            color="background"
-            flat
+    <div
+      class="section"
+      style="cursor:pointer"
+      v-for="article in $t('Articles')"
+      :key="article.id"
+      @click="$router.push({ name: article.id })"
+    >
+      <v-hover v-slot:default="{ hover }" close-delay="200">
+        <v-card
+          :elevation="hover ? 8 : 0"
+          class="d-flex justify-space-between py-8"
+          color="background"
+          flat
+        >
+          <div
+            :class="$vuetify.breakpoint.smAndUp ? 'headline' : 'sub-title'"
+            class="pr-6 pl-5"
+            :style="$vuetify.breakpoint.smAndUp ? 'width:40%' : 'width:80%'"
           >
-            <div
-              :class="$vuetify.breakpoint.smAndUp ? 'headline' : 'sub-title'"
-              class="pr-6 pl-5"
-              :style="$vuetify.breakpoint.smAndUp ? 'width:40%' : 'width:80%'"
-            >
-              {{ article.title }}
-              <br /><span class="overline">{{ article.date }}</span>
-            </div>
-            <div
-              v-if="$vuetify.breakpoint.smAndUp"
-              style="width:50%"
-              class="px-8 ma-0 body-2"
-            >
-              {{ article.description }}
-            </div>
-            <img
-              :style="
-                $vuetify.breakpoint.smAndUp
-                  ? 'max-width:240px'
-                  : 'max-width:130px'
-              "
-              :src="loadImg(article.img)"
-              style="border-radius:1px; object-fit: contain;"
-              class="pr-5 mb-0"
-            />
-          </v-card>
-        </v-hover>
+            {{ article.title }}
+            <br /><span class="overline">{{ article.date }}</span>
+          </div>
+          <div
+            v-if="$vuetify.breakpoint.smAndUp"
+            style="width:50%"
+            class="px-8 ma-0 body-2"
+          >
+            {{ article.description }}
+          </div>
+          <img
+            :style="
+              $vuetify.breakpoint.smAndUp
+                ? 'max-width:240px'
+                : 'max-width:130px'
+            "
+            :src="loadImg(article.img)"
+            style="border-radius:1px; object-fit: contain;"
+            class="pr-5 mb-0"
+          />
+        </v-card>
+      </v-hover>
 
-        <v-divider v-if="article.divider"></v-divider>
-      </div>
+      <v-divider v-if="article.divider"></v-divider>
     </div>
   </div>
 </template>
 
 <script>
-import Articles from '@/assets/articles/articles.json'
-
 const images = require.context('@/assets/articles', false, /\.png$|\.jpg$/)
 
 export default {
   components: {},
   data() {
     return {}
-  },
-  computed: {
-    entries() {
-      return Articles
-    }
   },
   methods: {
     loadImg(imgPath) {

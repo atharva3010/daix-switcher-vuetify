@@ -90,17 +90,13 @@ export default {
   },
   methods: {
     getPrice() {
-      EventServiceCC.getCoinPrice({})
-        .then(response => {
-          this.coins[0].price = response.data.BTC.USD
-          this.coins[1].price = response.data.ETH.USD
-          this.coins[2].price = response.data.XTZ.USD
-          this.coins[3].price = response.data.LINK.USD
-          this.coins[4].price = response.data.USDT.USD
-        })
-        .catch(err => {
-          return 'getPrice Error'
-        })
+      EventServiceCC.getCoinPrice({}).then(response => {
+        this.coins[0].price = response.data.BTC.USD
+        this.coins[1].price = response.data.ETH.USD
+        this.coins[2].price = response.data.XTZ.USD
+        this.coins[3].price = response.data.LINK.USD
+        this.coins[4].price = response.data.USDT.USD
+      })
     },
     calcBuy(coin) {
       if (coin.price) {

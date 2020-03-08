@@ -110,6 +110,11 @@ export default {
           link: 'https://www.truemoney.com.kh/',
           class: 'pr-0'
         }
+      },
+      metaInfo: {
+        title: 'Buy and Sell Bitcoin',
+        // override the parent template and just use the above title only
+        titleTemplate: null
       }
     }
   }

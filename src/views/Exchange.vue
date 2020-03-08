@@ -116,7 +116,7 @@ export default {
   },
   name: 'Exchange',
   metaInfo: {
-    title: 'DAIX Swap',
+    title: 'Swap Your Cryptocurrency',
     // override the parent template and just use the above title only
     titleTemplate: null
   },

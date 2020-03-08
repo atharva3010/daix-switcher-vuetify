@@ -1,6 +1,6 @@
 # តោះនាំគ្នាស្វែងយល់ខ្លះៗអំពី Bitcoin
 
-![image](./what-is-btc.jpg)
+![image](./what-is-btc.webp)
 
 ## សួស្តីទាំងអស់គ្នា! 👋
 

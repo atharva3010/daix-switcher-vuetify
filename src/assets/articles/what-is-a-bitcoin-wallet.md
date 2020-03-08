@@ -1,6 +1,6 @@
 # What is a Bitcoin wallet?
 
-![bitcoin with smartphone and wallet image](./btc-wallet.jpg)
+![bitcoin with smartphone and wallet image](./btc-wallet.webp)
 
 A Bitcoin wallet is a wallet for your Bitcoin, and you will need one so that we can send you your Bitcoin after you have purchased them on DAIX. It stores information such as your private key and public key (your address) that allows you to make transactions and receive Bitcoin. There are five types of wallets: hardware, paper, desktop, web, and mobile.
 

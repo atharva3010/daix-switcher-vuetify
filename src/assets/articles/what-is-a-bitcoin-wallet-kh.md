@@ -1,6 +1,6 @@
 # អ្វីទៅជា Bitcoin wallet?
 
-![bitcoin with smartphone and wallet image](./btc-wallet.jpg)
+![bitcoin with smartphone and wallet image](./btc-wallet.webp)
 
 Bitcoin wallet គឺជាកាបូបលុយសំរាប់ផ្ទុក Bitcoin របស់អ្នក អ្នកត្រូវមានកាបូបលុយមួយទើបពួកយើងអាចផ្ញើ Bitcoin ទៅបានបន្ទាប់ពីអ្នកបានទិញរួចតាមរយៈ DAIX។ កាបូបនេះមានផ្ទុកព័ត៌មានដូចជា លេខសោសំងាត់ និង លេខសោសាធារណៈ (អាស័យដ្ឋានកាបូបរបស់អ្នក) ដែលអាចអោយអ្នកធ្វើប្រតិបត្តិការផ្សេងៗទាក់ទងនឹង Bitcoin។ កាបូបនេះមានប្រាំប្រភេទ៖ hardware, paper, desktop, web, និង mobile។
 

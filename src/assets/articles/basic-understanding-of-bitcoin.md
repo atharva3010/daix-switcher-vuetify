@@ -1,6 +1,6 @@
 # Get a basic understanding of Bitcoin
 
-![image](./what-is-btc.jpg)
+![image](./what-is-btc.webp)
 
 ## Welcome! 👋
 

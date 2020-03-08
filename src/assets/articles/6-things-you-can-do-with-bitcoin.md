@@ -1,6 +1,6 @@
 # 6 Things you can do with Bitcoin
 
-![bitcoin with smartphone image](./use-btc.png)
+![bitcoin with smartphone image](./use-btc.webp)
 
 You probably already know that Bitcoin is the most popular cryptocurrency with the highest market cap. Even in Cambodia, the number of Bitcoin users keeps increasing every day, and more and more people are beginning to see it's unique potential.
 

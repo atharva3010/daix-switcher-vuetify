@@ -100,14 +100,22 @@ export default {
     },
     calcBuy(coin) {
       if (coin.price) {
-        return _.round(coin.price * 1.05, 2)
+        if (coin.symbol === 'BTC') {
+          return _.round(coin.price * 1.05, 2)
+        } else {
+          return _.round(coin.price * 1.06, 2)
+        }
       } else {
         return 0
       }
     },
     calcSell(coin) {
       if (coin.price) {
-        return _.round(coin.price * 0.95, 2)
+        if (coin.symbol === 'BTC') {
+          return _.round(coin.price * 0.95, 2)
+        } else {
+          return _.round(coin.price * 0.94, 2)
+        }
       } else {
         return 0
       }

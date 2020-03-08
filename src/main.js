@@ -6,6 +6,11 @@ import vuetify from './plugins/vuetify'
 import VueQrcode from '@chenfengyuan/vue-qrcode'
 import i18n from './i18n'
 import VueMeta from 'vue-meta'
+import VueAnalytics from 'vue-analytics'
+
+Vue.use(VueAnalytics, {
+  id: 'UA-142584982-3'
+})
 
 Vue.component(VueQrcode.name, VueQrcode)
 

@@ -162,6 +162,9 @@ export default {
     }
   },
   methods: {
+    track() {
+      this.$ga.page('/')
+    },
     resetOrderDetails() {
       this.orderDetails = {
         exchangeAddress: '',

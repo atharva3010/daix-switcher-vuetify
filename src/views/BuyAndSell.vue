@@ -130,6 +130,13 @@ export default {
         titleTemplate: null
       }
     }
+  },
+  methods: {
+    methods: {
+      track() {
+        this.$ga.page('/')
+      }
+    }
   }
 }
 </script>

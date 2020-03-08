@@ -70,6 +70,9 @@ export default {
   methods: {
     loadImg(imgPath) {
       return images('./' + imgPath)
+    },
+    track() {
+      this.$ga.page('/')
     }
   }
 }

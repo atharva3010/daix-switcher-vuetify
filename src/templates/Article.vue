@@ -19,6 +19,11 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0)
+  },
+  methods: {
+    track() {
+      this.$ga.page('/')
+    }
   }
 }
 </script>

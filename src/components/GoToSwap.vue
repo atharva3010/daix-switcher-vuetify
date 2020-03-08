@@ -1,5 +1,5 @@
 <template>
-  <div class="pb-6 d-flex flex-column flex-sm-row">
+  <div class="pb-6 d-flex flex-column flex-sm-row justify-center">
     <v-btn
       class="mb-6 mr-sm-6"
       rounded

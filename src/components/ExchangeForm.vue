@@ -77,12 +77,7 @@
             </div>
             <div height="100%">
               <keep-alive>
-                <v-list
-                  height="400px"
-                  flat
-                  style="overflow-y:hidden"
-                  class="background"
-                >
+                <v-list flat style="overflow-y:hidden" class="background">
                   <v-subheader class="pl-8">Available Coins</v-subheader>
                   <v-list-item-group color="primary">
                     <v-list-item

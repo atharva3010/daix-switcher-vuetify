@@ -115,6 +115,11 @@ export default {
     ExchangeAlert
   },
   name: 'Exchange',
+  metaInfo: {
+    title: 'DAIX Swap',
+    // override the parent template and just use the above title only
+    titleTemplate: null
+  },
   data() {
     return {
       showExchangeDialog: false,
@@ -329,7 +334,7 @@ export default {
       if (this.orderDetails.orderId) {
         this.updateOrderStatus()
       }
-    }, 3000)
+    }, 30000)
   }
 }
 </script>

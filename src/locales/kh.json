@@ -3,24 +3,24 @@
     {
       "id": "basic-understanding-of-bitcoin-kh",
       "date": "December 18, 2019",
-      "title": "Get a basic understanding of Bitcoin",
-      "description": "If you are new to the digital currency space, it can be challenging to navigate all of the terms, concepts, and types of digital assets that are available. However, there is no need to",
+      "title": "តោះនាំគ្នាស្វែងយល់ខ្លះៗអំពី Bitcoin",
+      "description": "បើអ្នកទើបនឹងចាប់ផ្តើមស្វែងយល់អំពីរូបិយប័ណ្ណឌីជីថល (Digital Currency) នោះអ្នកប្រហែលជាអាចជួបនឹងការលំបាកក្នុងការស្វែងយល់ពាក្យគន្លឹះ ដំនើរការផ្សេងៗ ក៏ដូចជាប្រភេទទ្រព្យឌីជីថលអ្វីខ្លះដែលមាន។ មិនបាច់បារម្ភទៀតទេ",
       "img": "what-is-btc.jpg",
       "divider": "true"
     },
     {
-      "id": "6-things-you-can-do-with-bitcoin",
+      "id": "6-things-you-can-do-with-bitcoin-kh",
       "date": "October 15, 2019",
-      "title": "6 Things you can do with Bicoin",
-      "description": "You probably already know that Bitcoin is the most popular cryptocurrency with the highest market cap. Even in Cambodia, the number of Bitcoin users keeps increasing every day, and",
+      "title": "វិធី៦យ៉ាងដែលអ្នកអាចប្រើប្រាស់ Bitcoin",
+      "description": "អ្នកប្រហែលជាដឹងហើយថា Bitcoin ជាប្រភេទរូបិយប័ណ្ណឌីជីថល់ដែលល្បីជាងគេ ហើយមានតំលៃខ្ពស់ជាងគេក្នុងទីផ្សារ។ សូម្បីតែនៅកម្ពុជាក៏ចំនួនអ្នកប្រើប្រាស់វាកំពុងតែកើនឡើងជារៀងរាល់ថ្ងៃ ហើយមនុស្សជាច្រើនទៀតក៏ចាប់ផ្តើមយល់ពីផលប្រយោជ៍របស់វា។",
       "img": "use-btc.png",
       "divider": "true"
     },
     {
-      "id": "what-is-a-bitcoin-wallet",
+      "id": "what-is-a-bitcoin-wallet-kh",
       "date": "October 5, 2019",
-      "title": "What is a Bitcoin Wallet?",
-      "description": "A Bitcoin wallet is a wallet for your Bitcoin, and you will need one so that we can send you your Bitcoin after you have purchased them on DAIX. It stores information such as your",
+      "title": "អ្វីទៅជា Bitcoin wallet?",
+      "description": "Bitcoin wallet គឺជាកាបូបលុយសំរាប់ផ្ទុក Bitcoin របស់អ្នក អ្នកត្រូវមានកាបូបលុយមួយទើបពួកយើងអាចផ្ញើ Bitcoin ទៅបានបន្ទាប់ពីអ្នកបានទិញរួចតាមរយៈ DAIX។ កាបូបនេះមានផ្ទុកព័ត៌មានដូចជា លេខសោសំងាត់ និង លេខសោសាធារណៈ (អាស័យដ្ឋានកាបូបរបស់អ្នក) ",
       "img": "btc-wallet.jpg"
     }
   ]

@@ -30,13 +30,13 @@
     </v-row>
     <v-row justify="center" class="my-6 px-4">
       <v-col cols="12" md="5" class="mb-10 mr-4 text-center text-sm-left">
-        <h4 class="pb-4 px-1 overline" style="font-size: 1rem">
-          Current Exchange Rates
+        <h4 class="pb-4 px-1 overline" style="font-size: 0.8rem !important">
+          Current Cryptocurrency Exchange Rates
         </h4>
         <RatesTable />
       </v-col>
       <v-col cols="12" md="5" class="mb-10 text-center text-sm-left">
-        <h4 class="pb-4 px-1 overline">
+        <h4 class="pb-4 px-1 overline" style="font-size: 0.8rem !important">
           We support local payment methods in Cambodia
         </h4>
         <v-chip class="pt-6 pb-5 py-7" color="bgsecondary">

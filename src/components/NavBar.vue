@@ -51,9 +51,9 @@
             v-model="$vuetify.theme.dark"
             hide-details
             inset
-            label="Theme Dark"
+            label="Dark Theme"
             color="accent"
-          ></v-switch>
+          />
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -82,12 +82,12 @@ export default {
           name: 'Swap',
           path: '/swap',
           icon: 'mdi-swap-vertical-bold'
-        },
-        {
-          name: 'Orders',
-          path: '/orders',
-          icon: 'mdi-history'
         }
+        // {
+        //   name: 'Orders',
+        //   path: '/orders',
+        //   icon: 'mdi-history'
+        // }
       ]
     }
   }

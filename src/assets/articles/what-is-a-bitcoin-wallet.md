@@ -16,7 +16,7 @@ A web wallet is a wallet that is stored on the server of a website. Your wallet 
 
 Like a web wallet, a mobile wallet is a wallet that is stored within an app on your mobile device. In addition to using your mobile wallet to store Bitcoin, you can also use it for daily transactions such as paying at a restaurant. It is as simple as scanning the shop's QR-code with your phone and pressing send. Since your mobile device is connected to the internet, it’s not recommended to store large amounts of Bitcoin on a mobile device that is connected to the internet. Multiple wallet apps are available on both iOS and Android, such as **Enjin Wallet**, **Samourai Wallet**, and **Mycelium Wallet**.
 
-Paper Wallets
+### Paper Wallets
 
 A free alternative to the hardware wallet is creating a paper wallet. A paper wallet contains a public address and a private key printed on a piece of paper. Most of these wallets have them printed out in the form of a QR code, allowing for quick access through a scan. Just like a hardware wallet, these wallets are very safe as long as it is stored correctly and not used with any devices that are connected to the internet. Websites such as bitcoinpaperwallet.com and bitaddress.org can generate a random Bitcoin address for you along with a private key that you can print out.
 

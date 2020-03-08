@@ -2,8 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import BuyAndSell from '../views/BuyAndSell.vue'
 import i18n from '@/i18n'
+import Meta from 'vue-meta'
 
+Vue.use(Meta)
 Vue.use(VueRouter)
+
 const blog = i18n.messages
 const articles = Object.keys(blog).map(section => {
   const children = blog[section].Articles.map(child => ({

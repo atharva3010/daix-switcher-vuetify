@@ -22,7 +22,7 @@
           color="primary"
           width="2"
           size="17"
-          class="mr-1"
+          class="mr-2"
           v-if="iconStatus() === 'loading'"
         />
         <v-icon color="success" class="mr-1" v-if="iconStatus() === 'complete'">

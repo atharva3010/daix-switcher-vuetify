@@ -6,7 +6,7 @@
       transition="dialog-bottom-transition"
       :fullscreen="$vuetify.breakpoint.xsOnly"
     >
-      <v-card class="mx-auto background" height="600px">
+      <v-card class="mx-auto background" height="620px">
         <v-card-title
           v-if="destinationCoin.amount"
           class="px-4 py-3 mb-5 d-flex secondary"

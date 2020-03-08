@@ -55,7 +55,11 @@
 </template>
 
 <script>
-const images = require.context('@/assets/articles', false, /\.png$|\.jpg$/)
+const images = require.context(
+  '@/assets/articles',
+  false,
+  /\.png$|\.jpg$|\.webp$/
+)
 
 export default {
   components: {},

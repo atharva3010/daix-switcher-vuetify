@@ -1,3 +1,7 @@
+---
+title: Get Bitcoin
+---
+
 # Get a basic understanding of Bitcoin
 
 ![image](./what-is-btc.jpg)

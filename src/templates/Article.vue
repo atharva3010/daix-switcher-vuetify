@@ -15,11 +15,7 @@
 export default {
   name: 'Article',
   data() {
-    return {
-      metaInfo: {
-        title: 'About Us'
-      }
-    }
+    return {}
   },
   mounted() {
     window.scrollTo(0, 0)

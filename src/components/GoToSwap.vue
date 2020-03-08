@@ -8,7 +8,7 @@
       :to="'/' + $i18n.locale + '/swap'"
     >
       <v-icon color="white" left class="mr-3">mdi-swap-vertical-bold</v-icon>
-      <span style="color:white">Checkout Coin Swap</span>
+      <span style="color:white">Checkout DAIX Swap</span>
     </v-btn>
   </div>
 </template>

@@ -17,7 +17,7 @@ export default {
   name: 'Telegram',
   methods: {
     openTelegram() {
-      window.open('https://t.me/daixco', '_blank')
+      window.open('https://t.me/daixco', '_blank', 'noopener')
     }
   }
 }

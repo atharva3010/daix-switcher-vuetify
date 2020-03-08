@@ -32,6 +32,7 @@
                 class="mr-md-6 mr-3"
                 style="max-width:30px; border-radius:50%"
                 :src="coin.img"
+                alt="coin logo"
               />
               <span>
                 {{ coin.name }}
@@ -126,5 +127,3 @@ export default {
   }
 }
 </script>
-
-<style></style>

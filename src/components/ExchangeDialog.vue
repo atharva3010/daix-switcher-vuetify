@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     openPage(url) {
-      window.open(url, '_blank')
+      window.open(url, '_blank', 'noopener')
     },
     cancelOrder() {
       this.orderDetails.confirmed = false

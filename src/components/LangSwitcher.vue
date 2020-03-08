@@ -7,7 +7,7 @@
             class="mr-1"
             style="width:20px; vertical-align: middle"
             :src="require('../assets/' + $i18n.locale + '.png')"
-            alt="flag"
+            alt="country flag"
           />
           <v-icon small>mdi-chevron-down</v-icon>
         </div>
@@ -45,5 +45,3 @@ export default {
   }
 }
 </script>
-
-<style></style>

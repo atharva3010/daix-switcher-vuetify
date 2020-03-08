@@ -26,6 +26,16 @@
         <div class="mt-6">
           <ConnectButton />
         </div>
+        <span
+          class="pt-8"
+          :class="[$vuetify.breakpoint.mdAndUp ? 'headline' : 'title']"
+          style="line-height:1.2"
+        >
+          Want to exchange Crypto to Crypto?
+        </span>
+        <div class="mt-6">
+          <GoToSwap />
+        </div>
       </v-col>
     </v-row>
     <v-row justify="center" class="my-6 px-4">
@@ -46,10 +56,11 @@
               :key="pmIndex"
               :class="pm.class"
             >
-              <a target="_blank" :href="pm.link">
+              <a target="_blank" rel="noopener" :href="pm.link">
                 <img
                   style="max-height:30px; max-width:90px; height:auto;"
                   :src="pm.logo"
+                  alt="payment method logo"
                 />
               </a>
             </div>
@@ -79,6 +90,7 @@
 </template>
 
 <script>
+import GoToSwap from '../components/GoToSwap.vue'
 import RatesTable from '../components/RatesTable.vue'
 import FAQ from '../components/FAQ.vue'
 import ConnectButton from '../components/ConnectButton'
@@ -90,7 +102,8 @@ export default {
     Articles,
     ConnectButton,
     FAQ,
-    RatesTable
+    RatesTable,
+    GoToSwap
   },
   data() {
     return {

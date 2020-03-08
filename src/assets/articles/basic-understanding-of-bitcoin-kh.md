@@ -54,4 +54,4 @@ DAIX ជាវិធីក្នុងការទិញរូបិយប័ណ
 
 ពួកយើងចង់ជំរុញអោយអ្នករៀនអំពីរូបិយប័ណ្ណឌីជីថលអោយបានកាន់តែច្រើន ហេតុនេះទើបយើងព្យាយាមផ្តល់ពត៍មានអោយកាន់តែច្រើនតាមដែលយើងអាចធ្វើបាន។ យើងសូមណែនាំអ្នកអោយចូលមើលទំព័រចាប់ផ្តើមយើង [តាមនេះ](https://daix.co)។
 
-បើអ្នកមានចម្ងល់បន្ថែម សូមចូលទៅកាន់ទំព័រ <a href="https://t.me/daixco" target="_blank">Telegram</a> or <a href="https://m.me/daixcambodia" target="_blank">Facebook</a>.
+បើអ្នកមានចម្ងល់បន្ថែម សូមចូលទៅកាន់ទំព័រ <a href="https://t.me/daixco" rel="noopener" target="_blank">Telegram</a> or <a href="https://m.me/daixcambodia" rel="noopener" target="_blank">Facebook</a>.

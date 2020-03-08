@@ -45,6 +45,7 @@
                 class="mr-3"
                 style="max-width:23px; border-radius:50%"
                 :src="exchangeProps.selected.logoUrl"
+                alt="coin logo"
               />
 
               {{ exchangeProps.selected.symbol }}

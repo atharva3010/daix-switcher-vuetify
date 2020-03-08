@@ -24,7 +24,7 @@ A few of these advantages are:
 
 ### Spending Bitcoin
 
-Spending Bitcoin offers you a unique advantage over traditional spending. For instance, with Bitcoin, you can make anonymous transactions. This means - if you follow <a href="https://coinsutra.com/anonymous-bitcoin-transactions/" target="_blank">proper practice</a> - you can make purchases without revealing your real identity. This is one of the reasons that it became so popular on the dark web in its early days.
+Spending Bitcoin offers you a unique advantage over traditional spending. For instance, with Bitcoin, you can make anonymous transactions. This means - if you follow <a href="https://coinsutra.com/anonymous-bitcoin-transactions/" rel="noopener" target="_blank">proper practice</a> - you can make purchases without revealing your real identity. This is one of the reasons that it became so popular on the dark web in its early days.
 
 Another unique feature (mainly for merchants) is that you can be sure that there will be no chargebacks or frozen funds. Once a Bitcoin transaction is confirmed, which usually takes 1-30 minutes, there is no way for the sender to revert that transaction.
 
@@ -32,9 +32,9 @@ Another unique feature (mainly for merchants) is that you can be sure that there
 
 In the traditional financial loan system, there's a borrower and a lender. Bitcoin lending works somewhat the same way. So if you have Bitcoin in your wallet that you're not planning on using for some time, you can earn interest by lending it out. You can lend to interested borrowers over an agreed duration of lending and on agreed rates.
 
-For Bitcoin, there are centralized solutions in place to secure all transactions between the borrower and the lender. However, decentralized solutions are being built on <a href="https://blockgeeks.com/guides/ethereum/" target="_blank">Ethereum</a>.
+For Bitcoin, there are centralized solutions in place to secure all transactions between the borrower and the lender. However, decentralized solutions are being built on <a href="https://blockgeeks.com/guides/ethereum/" rel="noopener" target="_blank">Ethereum</a>.
 
-These solutions are known as <a href="https://blockonomi.com/what-is-decentralized-finance-defi/" target="_blank">Decentralized Finance</a> or DeFi. This innovation leverages decentralized networks to transform lending protocols into transparent procedures without any intermediary.
+These solutions are known as <a href="https://blockonomi.com/what-is-decentralized-finance-defi/" rel="noopener" target="_blank">Decentralized Finance</a> or DeFi. This innovation leverages decentralized networks to transform lending protocols into transparent procedures without any intermediary.
 
 Some individuals believe that DeFi is about to become the backbone of the new financial system.
 
@@ -42,7 +42,7 @@ Some individuals believe that DeFi is about to become the backbone of the new fi
 
 Trading is one of the most common ways Bitcoin is used today. It works similar to Forex trading, and the general idea is to buy low and sell high.
 
-There are three popular trading methods practiced by Bitcoin traders to maximize profit. <a href="https://99bitcoins.com/bitcoin-trading/#trading_types" target="_blank">Bitcoin trading types</a> include day trading, scalping, and swing trading.
+There are three popular trading methods practiced by Bitcoin traders to maximize profit. <a href="https://99bitcoins.com/bitcoin-trading/#trading_types" rel="noopener" target="_blank">Bitcoin trading types</a> include day trading, scalping, and swing trading.
 
 **Day trading:** The main idea behind the day trading strategy is looking for opportunities - mostly based on speculations and technical analysis - to make short-term profits from the ongoing market. A typical day trader conducts multiple trades throughout the day; he enters the market, takes a position, keeps an eye on the positions, and then exits at a profit.
 
@@ -64,9 +64,9 @@ One way to reinvest your Bitcoin is by buying other coins or tokens on an exchan
 
 **WARNING!** Several fraudulent organizations are scamming people, ripping them of their hard-earned money. These scams have devised various methods of defrauding people. Ponzi schemes and worthless coin promotion (shitcoins) are popular methods.
 
-These so-called investment ponzis would promise investors ridiculously high returns on their investment within the shortest time. For example, a popular Ponzi scheme is <a href="https://bitcoinist.com/mining-max-pyramid-scheme-comes-crashing-down/" target="_blank">Mining Max</a>. This self-acclaimed mining platform was caught in South Korea after it has ripped off about USD 250.6 million from 18,000 investors.
+These so-called investment ponzis would promise investors ridiculously high returns on their investment within the shortest time. For example, a popular Ponzi scheme is <a href="https://bitcoinist.com/mining-max-pyramid-scheme-comes-crashing-down/" rel="noopener" target="_blank">Mining Max</a>. This self-acclaimed mining platform was caught in South Korea after it has ripped off about USD 250.6 million from 18,000 investors.
 
-Shitcoins, on the other hand, are cryptocurrencies with no utility or unique features. Shitcoin owners often hype their coins to lure investors into buying them. Sooner or later, the value of the coins will depreciate due to flawed and unrealistic fundamentals. OneCoin is a typical example of a shitcoin. Its founders <a href="https://fortune.com/2019/11/06/is-onecoin-the-biggest-financial-fraud-in-history/" target="_blank">stole at least USD 4.4 billion</a> from its many investors all across the world.
+Shitcoins, on the other hand, are cryptocurrencies with no utility or unique features. Shitcoin owners often hype their coins to lure investors into buying them. Sooner or later, the value of the coins will depreciate due to flawed and unrealistic fundamentals. OneCoin is a typical example of a shitcoin. Its founders <a href="https://fortune.com/2019/11/06/is-onecoin-the-biggest-financial-fraud-in-history/" rel="noopener" target="_blank">stole at least USD 4.4 billion</a> from its many investors all across the world.
 
 ### Donating Bitcoin
 

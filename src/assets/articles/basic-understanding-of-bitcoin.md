@@ -45,7 +45,7 @@ There are several digital assets that exist, but some of the most common are:
 - Dogecoin (DOGE)
 - Monero (XMR)
 
-To find a list of all currently active digital currency visit [Coingecko](https://www.coingecko.com/)
+To find a list of all currently active digital currency visit <a href="https://www.coingecko.com/" rel="noopener" target="_blank">Coingecko</a>
 
 ### Using DAIX
 
@@ -55,4 +55,4 @@ DIAX is a fast and straightforward way to purchase digital currency in Cambodia.
 
 We encourage our users to learn as much about the digital currency world as possible, so we try to provide as much information as we can. If you are new to this space, we recommend you check out our other articles [here](https://daix.co).
 
-If you have more questions, talk to us on <a href="https://t.me/daixco" target="_blank">Telegram</a> or <a href="https://m.me/daixcambodia" target="_blank">Facebook</a>.
+If you have more questions, talk to us on <a href="https://t.me/daixco" rel="noopener" target="_blank">Telegram</a> or <a href="https://m.me/daixcambodia" rel="noopener" target="_blank">Facebook</a>.

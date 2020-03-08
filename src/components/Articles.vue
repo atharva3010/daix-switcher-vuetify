@@ -45,6 +45,7 @@
             :src="loadImg(article.img)"
             style="border-radius:1px; object-fit: contain;"
             class="pr-5 mb-0"
+            alt="article header img"
           />
         </v-card>
       </v-hover>

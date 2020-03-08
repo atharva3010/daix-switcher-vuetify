@@ -22,8 +22,12 @@
           {{ item.a }}
           <br />
           <div v-if="item.lc">
-            <a :href="item.lc" target="_blank">LocalCryptos Profile</a><br />
-            <a :href="item.lb" target="_blank">LocalBitcoins Profile</a>
+            <a :href="item.lc" rel="noopener" target="_blank"
+              >LocalCryptos Profile</a
+            ><br />
+            <a :href="item.lb" rel="noopener" target="_blank"
+              >LocalBitcoins Profile</a
+            >
           </div>
         </v-expansion-panel-content>
       </v-expansion-panel>

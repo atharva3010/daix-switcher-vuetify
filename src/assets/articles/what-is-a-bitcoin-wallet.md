@@ -6,7 +6,7 @@ A Bitcoin wallet is a wallet for your Bitcoin, and you will need one so that we 
 
 ### Hardware Wallets
 
-Hardware wallets are wallets that are stored on a device, only accessible by being plugged into a computer. This is the safest type of wallet as it allows you to keep your private keys completely offline. There are multiple types from a variety of brands, with some costing around \$50 - 150. If you are looking to buy one, we can recommend getting a Ledger, as we have used them extensively ourselves, and they also ship to Cambodia. For our referral link, you can click <a href="https://shop.ledger.com/pages/ledger-nano-x?r=15966d90a8e2" target="_blank">here</a>.
+Hardware wallets are wallets that are stored on a device, only accessible by being plugged into a computer. This is the safest type of wallet as it allows you to keep your private keys completely offline. There are multiple types from a variety of brands, with some costing around \$50 - 150. If you are looking to buy one, we can recommend getting a Ledger, as we have used them extensively ourselves, and they also ship to Cambodia. For our referral link, you can click <a href="https://shop.ledger.com/pages/ledger-nano-x?r=15966d90a8e2" rel="noopener" target="_blank">here</a>.
 
 ### Web Wallets
 

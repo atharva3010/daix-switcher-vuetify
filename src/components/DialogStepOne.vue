@@ -20,12 +20,7 @@
           <template v-slot:label>
             <div>
               Do you accept the
-              <a href="javascript:" @click.stop="openPage(termsPath)">terms</a>
-              and
-              <a href="javascript:" @click.stop="openPage(conditionsPath)">
-                conditions
-              </a>
-              ?
+              <a href="javascript:" @click.stop="openPage(termsPath)">terms</a>?
             </div>
           </template>
         </v-checkbox>
@@ -55,13 +50,12 @@ export default {
   },
   data() {
     return {
-      termsPath: 'https//google.com',
-      conditionsPath: 'https//google.com/hi'
+      termsPath: 'https://daix.co/terms.html'
     }
   },
   methods: {
     openPage(url) {
-      window.open(url, '_blank')
+      window.open(url, '_blank', 'noopener')
     }
   }
 }

@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     startMessage(link) {
-      window.open(link, '_blank')
+      window.open(link, '_blank', 'noopener')
     }
   }
 }

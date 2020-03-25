@@ -1,47 +1,32 @@
 <template>
-  <div class="pb-6 d-flex flex-column flex-sm-row justify-center">
-    <v-btn
-      class="mb-6 mr-sm-6"
-      rounded
-      :color="telegram.color"
-      large
-      @click="startMessage(telegram.link)"
-    >
-      <v-icon color="white" large left class="mr-5">{{ telegram.icon }}</v-icon>
-      <span style="color:white">Message us on Telegram</span>
-    </v-btn>
+  <div class="">
     <v-btn
       class="mb-6"
       rounded
-      :color="facebook.color"
+      :color="this.color"
       large
-      @click="startMessage(facebook.link)"
+      @click="startMessage()"
     >
-      <v-icon color="white" large left class="mr-5">{{ facebook.icon }}</v-icon>
-      <span style="color:white">Message us on Facebook</span>
+      <v-icon color="white" large left class="mr-5">{{ this.icon }}</v-icon>
+      <span style="color:white">
+        {{ $t('Content.ConnectButton.message-us') }} {{ this.name }}</span
+      >
     </v-btn>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      facebook: {
-        link: 'https://m.me/daixcambodia',
-        icon: 'mdi-facebook-messenger',
-        color: '#0084ff'
-      },
-      telegram: {
-        link: 'https://t.me/daixco',
-        icon: 'mdi-telegram',
-        color: '#0088cc'
-      }
-    }
+  name: 'ConnectButton',
+  props: {
+    name: String,
+    link: String,
+    icon: String,
+    color: String
   },
   methods: {
-    startMessage(link) {
-      window.open(link, '_blank', 'noopener')
+    startMessage() {
+      window.open(this.link, '_blank', 'noopener')
     }
   }
 }

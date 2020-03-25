@@ -23,5 +23,59 @@
       "description": "Bitcoin wallet គឺជាកាបូបលុយសំរាប់ផ្ទុក Bitcoin របស់អ្នក អ្នកត្រូវមានកាបូបលុយមួយទើបពួកយើងអាចផ្ញើ Bitcoin ទៅបានបន្ទាប់ពីអ្នកបានទិញរួចតាមរយៈ DAIX។ កាបូបនេះមានផ្ទុកព័ត៌មានដូចជា លេខសោសំងាត់ និង លេខសោសាធារណៈ (អាស័យដ្ឋានកាបូបរបស់អ្នក) ",
       "img": "btc-wallet.webp"
     }
-  ]
+  ],
+  "Content": {
+    "BuyAndSell": {
+      "header": "KH Buy & Sell Bitcoin <br /> in Cambodia",
+      "connect-title": "Exchange directly with us on Telegram and Facebook.",
+      "swap-title": "Want to exchange Crypto to Crypto?",
+      "payment-title": "We support local payment methods in Cambodia",
+      "rates-title": "Current Cryptocurrency Exchange Rates"
+    },
+    "ConnectButton": {
+      "message-us": "Message us on "
+    },
+    "FAQ": {
+      "header": "Frequently Asked Questions",
+      "about": "About DAIX",
+      "Faqs": {
+        "1": {
+          "q": "How do I Buy and Sell Bitcoin using DAIX?",
+          "a": "DAIX supports all major payment methods in Cambodia. Get in contact with us through Telegram, Facebook, LocalCryptos.com and, LocalBitcoins.com."
+        },
+        "3": {
+          "q": "Why should I trust you?",
+          "a": "We at DAIX have been trading cryptocurrency and building a reputation in Cambodia for quite some time now. Find us on LocalCryptos.com and LocalBitcoins.com two of the most trusted P2P trading platforms."
+        },
+        "4": {
+          "q": "What is our transaction fees?",
+          "a": "We charge between 3% to 5% depending on the current demand and supply. The conversion rate you see is inclusive of our fees."
+        },
+        "5": {
+          "q": "Can I get a better rate for larger volume transactions?",
+          "a": "This can sometimes be the case. Please get in contact with us so we can discuss it further."
+        },
+        "6": {
+          "q": "What is the minimum amount?",
+          "a": "For Ethereum, DAI and USDC the minimum amount is $55. For Bitcoin, the minimum amount is $200."
+        },
+        "7": {
+          "q": "When should I receive my funds?",
+          "a": "It takes 1 - 30 minutes depending on the Blockchain. We recommend using Ethereum or ERC20 Tokens like DAI and USDC if you wish faster confirmation."
+        },
+        "8": {
+          "q": "What's a cryptocurrency wallet address?",
+          "a": "A cryptocurrency wallet is a digital place for your coins to be stored. Each coin has a certain wallet provider. That could be apps, web wallets and other applications. The wallet address represents a randomly generated combination of digits and letters. DAIX doesn't provide wallet addresses and never stores user deposits. To exchange cryptocurrencies, you need to have a cryptocurrency wallet address."
+        },
+        "9": {
+          "q": "How do I get a cryptocurrency wallet address?",
+          "a": "If you have an account with a cryptocurrency exchange service like Binance, go to Wallet -> Deposit and then select the coin. You will see a long random-looking address, you can share this address with us to receive your coins."
+        },
+        "10": {
+          "q": "Why isn't my Bitcoin showing in my wallet?",
+          "n": "The time it will take for the Bitcoin to show up depends on which wallet or exchange you are using to receive the Bitcoin. This is usually because they require more network confirmation for the Bitcoin to become visible in your account."
+        }
+      }
+    }
+  }
 }

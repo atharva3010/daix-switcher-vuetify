@@ -72,7 +72,7 @@ export default {
       return images('./' + imgPath)
     },
     track() {
-      this.$ga.page('/')
+      this.$ga.page('/articles')
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
-    <v-row justify="center" class="px-4 text-center">
-      <v-col cols="12" md="10">
+    <v-row justify="center" class="px-4">
+      <v-col cols="12" md="8">
         <h1
           class="mb-12 py-6 font-weight-bold"
           :class="[
@@ -12,36 +12,85 @@
               : 'display-1'
           ]"
           style="line-height:1.05"
-        >
-          Buy & Sell Bitcoin <br />
-          in Cambodia
-        </h1>
-        <span
-          class="pt-8"
-          :class="[$vuetify.breakpoint.mdAndUp ? 'headline' : 'title']"
-          style="line-height:1.2"
-        >
-          Exchange directly with us on Telegram and Facebook.
-        </span>
-        <div class="mt-6">
-          <ConnectButton />
-        </div>
-        <span
-          class="pt-8"
-          :class="[$vuetify.breakpoint.mdAndUp ? 'headline' : 'title']"
-          style="line-height:1.2"
-        >
-          Want to exchange Crypto to Crypto?
-        </span>
-        <div class="mt-6">
-          <GoToSwap />
+          v-html="$t('Content.BuyAndSell.header')"
+        ></h1>
+      </v-col>
+    </v-row>
+    <v-row justify="center" class="my-sm-12 px-4">
+      <v-col cols="12" md="4" class="px-8">
+        <img width="100%" src="@/assets/undraw_mobile_messages.svg" alt="" />
+      </v-col>
+      <v-col cols="12" md="4" class="px-sm-8">
+        <div class="text-sm-right text-center">
+          <div class="pb-8 pl-sm-10">
+            <span
+              :class="[$vuetify.breakpoint.mdAndUp ? 'display-1' : 'headline']"
+              style="line-height:1.2; font-size:1.8rem !important"
+            >
+              {{ $t('Content.BuyAndSell.connect-title') }}
+            </span>
+          </div>
+
+          <ConnectButton
+            name="Telegram"
+            link="https://t.me/daixco"
+            icon="mdi-telegram"
+            color="#0088cc"
+          />
+          <ConnectButton
+            name="Facebook"
+            link="https://m.me/daixcambodia"
+            icon="mdi-facebook-messenger"
+            color="#0084ff"
+          />
         </div>
       </v-col>
     </v-row>
-    <v-row justify="center" class="my-6 px-4">
+    <v-row justify="center" class="px-4 text-center py-12">
+      <v-col cols="12" md="4" class="px-sm-8">
+        <div class="text-sm-left text-center">
+          <div class="pb-8 pr-sm-10">
+            <span
+              :class="[$vuetify.breakpoint.mdAndUp ? 'display-1' : 'headline']"
+              style="line-height:1.2; font-size:1.8rem !important"
+            >
+              {{ $t('Content.BuyAndSell.local-title') }}
+            </span>
+          </div>
+          <ExchangesButton
+            name="LocalCryptos"
+            link="https://localcryptos.com/profile/daix.co"
+            color="#8a64de"
+          />
+          <ExchangesButton
+            name="LocalBitcoins"
+            link="https://localbitcoins.com/accounts/profile/Temboro/"
+            color="#ff9d57"
+          />
+        </div>
+      </v-col>
+      <v-col cols="12" md="4" class="px-8">
+        <img width="100%" src="@/assets/undraw_tabs.svg" alt="" />
+      </v-col>
+    </v-row>
+    <!-- <v-row justify="center" class="px-4 my-sm-12 text-center">
+      <v-col cols="12" md="4">
+        <div class="mt-6">
+          <span
+            class="pt-8"
+            :class="[$vuetify.breakpoint.mdAndUp ? 'headline' : 'title']"
+            style="line-height:1.2"
+          >
+            {{ $t('Content.BuyAndSell.swap-title') }}
+          </span>
+          <GoToSwap />
+        </div>
+      </v-col>
+    </v-row> -->
+    <v-row justify="center" class="mt-12 px-4">
       <v-col cols="12" md="4" class="mb-10 text-center">
         <h4 class="pb-4 px-1 overline" style="font-size: 0.7rem !important">
-          We support local payment methods in Cambodia
+          {{ $t('Content.BuyAndSell.payment-title') }}
         </h4>
         <v-chip class="pt-6 pb-5 py-7" color="bgsecondary">
           <div class="d-flex">
@@ -63,7 +112,7 @@
       </v-col>
       <v-col cols="12" md="4" class="mb-10 text-center">
         <h4 class="pb-4 px-1 overline" style="font-size: 0.7rem !important">
-          Current Cryptocurrency Exchange Rates
+          {{ $t('Content.BuyAndSell.rates-title') }}
         </h4>
         <RatesTable />
       </v-col>
@@ -73,7 +122,7 @@
       class="px-2 pb-12"
       style="background-color: var(--v-bgsecondary-base)"
     >
-      <v-col cols="12" md="10">
+      <v-col cols="12" md="8">
         <FAQ />
       </v-col>
     </v-row>
@@ -82,7 +131,7 @@
       class="mb-12"
       style="background-color: var(--v-background-base)"
     >
-      <v-col cols="12" md="10">
+      <v-col cols="12" md="8">
         <Articles />
       </v-col>
     </v-row>
@@ -90,7 +139,8 @@
 </template>
 
 <script>
-import GoToSwap from '../components/GoToSwap.vue'
+import ExchangesButton from '../components/ExchangesButton.vue'
+// import GoToSwap from '../components/GoToSwap.vue'
 import RatesTable from '../components/RatesTable.vue'
 import FAQ from '../components/FAQ.vue'
 import ConnectButton from '../components/ConnectButton'
@@ -103,7 +153,7 @@ export default {
     ConnectButton,
     FAQ,
     RatesTable,
-    GoToSwap
+    ExchangesButton
   },
   data() {
     return {
@@ -132,10 +182,8 @@ export default {
     }
   },
   methods: {
-    methods: {
-      track() {
-        this.$ga.page('/')
-      }
+    track() {
+      this.$ga.page('/')
     }
   }
 }

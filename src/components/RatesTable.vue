@@ -69,16 +69,16 @@ export default {
           img: 'https://files.coinswitch.co/public/coins/eth.png'
         },
         {
-          name: 'Tezos',
-          symbol: 'XTZ',
+          name: 'DAI',
+          symbol: 'DAI',
           price: 0,
-          img: 'https://files.coinswitch.co/public/coins/xtz.png'
+          img: 'https://files.coinswitch.co/public/coins/dai_2.png'
         },
         {
-          name: 'Link',
-          symbol: 'LINK',
+          name: 'USD Coin',
+          symbol: 'USDC',
           price: 0,
-          img: 'https://files.coinswitch.co/public/coins/link.png'
+          img: 'https://files.coinswitch.co/public/coins/usdc.png'
         },
         {
           name: 'Tether',
@@ -94,8 +94,8 @@ export default {
       EventServiceCC.getCoinPrice({}).then(response => {
         this.coins[0].price = response.data.BTC.USD
         this.coins[1].price = response.data.ETH.USD
-        this.coins[2].price = response.data.XTZ.USD
-        this.coins[3].price = response.data.LINK.USD
+        this.coins[2].price = response.data.DAI.USD
+        this.coins[3].price = response.data.USDC.USD
         this.coins[4].price = response.data.USDT.USD
       })
     },

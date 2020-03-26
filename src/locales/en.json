@@ -42,20 +42,20 @@
       "about": "About DAIX",
       "Faqs": {
         "1": {
-          "q": "How do I Buy and Sell Bitcoin using DAIX?",
-          "a": "DAIX supports all major payment methods in Cambodia. Get in contact with us through Telegram, Facebook, LocalCryptos.com and, LocalBitcoins.com."
+          "q": "How do I Buy and Sell Bitcoin with you?",
+          "a": "We support all major payment methods in Cambodia. Get in contact with us through Telegram, Facebook, LocalCryptos.com and LocalBitcoins.com."
         },
         "3": {
           "q": "Why should I trust you?",
-          "a": "We at DAIX have been trading cryptocurrency and building a reputation in Cambodia for quite some time now. Find us on LocalCryptos.com and LocalBitcoins.com two of the most trusted P2P trading platforms."
+          "a": "We have been trading cryptocurrency and building a reputation in Cambodia for quite some time. Click on the links above to fund us on LocalCryptos.com and LocalBitcoins.com two of the most trusted P2P trading platforms."
         },
         "4": {
-          "q": "What is our transaction fees?",
-          "a": "We charge between 3% to 5% depending on the current demand and supply. The conversion rate you see is inclusive of our fees."
+          "q": "What are the fees?",
+          "a": "We charge between 3% to 10% depending on the current demand and supply. Go to our Live Rates page to find out more."
         },
         "5": {
           "q": "Can I get a better rate for larger volume transactions?",
-          "a": "This can sometimes be the case. Please get in contact with us so we can discuss it further."
+          "a": "This can sometimes be the case. Please get in contact with us so we can discuss this further."
         },
         "6": {
           "q": "What is the minimum amount?",
@@ -67,11 +67,11 @@
         },
         "8": {
           "q": "What's a cryptocurrency wallet address?",
-          "a": "A cryptocurrency wallet is a digital place for your coins to be stored. Each coin has a certain wallet provider. That could be apps, web wallets and other applications. The wallet address represents a randomly generated combination of digits and letters. DAIX doesn't provide wallet addresses and never stores user deposits. To exchange cryptocurrencies, you need to have a cryptocurrency wallet address."
+          "a": "If you have an account with a cryptocurrency exchange service like Binance, go to Wallet -> Deposit and then select the coin. You will see a long random-looking addressstring, that is your address, you can share this address it with us to receive your coins."
         },
         "9": {
           "q": "How do I get a cryptocurrency wallet address?",
-          "a": "If you have an account with a cryptocurrency exchange service like Binance, go to Wallet -> Deposit and then select the coin. You will see a long random-looking address, you can share this address with us to receive your coins."
+          "a": "If you have an account with a cryptocurrency exchange service like Binance, go to Wallet -> Deposit and then select the coin. You will see a long random-looking string, that is your address, you can share it with us to receive your coins."
         },
         "10": {
           "q": "Why isn't my Bitcoin showing in my wallet?",

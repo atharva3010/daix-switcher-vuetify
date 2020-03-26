@@ -3,7 +3,7 @@
     <v-row justify="center" class="px-4">
       <v-col cols="12" md="8">
         <h1
-          class="mb-12 py-6 font-weight-bold"
+          class="py-6 font-weight-bold"
           :class="[
             $vuetify.breakpoint.mdAndUp
               ? 'display-3'
@@ -13,12 +13,33 @@
           ]"
           style="line-height:1.05"
           v-html="$t('Content.BuyAndSell.header')"
-        ></h1>
+        />
+        <v-chip class="pt-6 mb-12 py-7" color="white">
+          <div class="d-flex">
+            <div
+              v-for="(pm, pmIndex) in paymentMethods"
+              :key="pmIndex"
+              :class="pm.class"
+            >
+              <a target="_blank" rel="noopener" :href="pm.link">
+                <img
+                  style="max-height:30px; max-width:90px; height:auto;"
+                  :src="pm.logo"
+                  alt="payment method logo"
+                />
+              </a>
+            </div>
+          </div>
+        </v-chip>
       </v-col>
     </v-row>
     <v-row justify="center" class="my-sm-12 px-4">
       <v-col cols="12" md="4" class="px-8">
-        <img width="100%" src="@/assets/undraw_mobile_messages.svg" alt="" />
+        <img
+          width="100%"
+          src="@/assets/undraw_mobile_messages.svg"
+          alt="Illutration of a guy sending a message on his phone"
+        />
       </v-col>
       <v-col cols="12" md="4" class="px-sm-8">
         <div class="text-sm-right text-center">
@@ -87,7 +108,7 @@
         </div>
       </v-col>
     </v-row> -->
-    <v-row justify="center" class="mt-12 px-4">
+    <!-- <v-row justify="center" class="mt-12 mb-sm-4 px-4">
       <v-col cols="12" md="4" class="mb-10 text-center">
         <h4 class="pb-4 px-1 overline" style="font-size: 0.7rem !important">
           {{ $t('Content.BuyAndSell.payment-title') }}
@@ -116,7 +137,7 @@
         </h4>
         <RatesTable />
       </v-col>
-    </v-row>
+    </v-row> -->
     <v-row
       justify="center"
       class="px-2 pb-12"
@@ -141,7 +162,7 @@
 <script>
 import ExchangesButton from '../components/ExchangesButton.vue'
 // import GoToSwap from '../components/GoToSwap.vue'
-import RatesTable from '../components/RatesTable.vue'
+// import RatesTable from '../components/RatesTable.vue'
 import FAQ from '../components/FAQ.vue'
 import ConnectButton from '../components/ConnectButton'
 import Articles from '../components/Articles'
@@ -152,7 +173,6 @@ export default {
     Articles,
     ConnectButton,
     FAQ,
-    RatesTable,
     ExchangesButton
   },
   data() {

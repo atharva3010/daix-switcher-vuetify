@@ -26,54 +26,54 @@
   ],
   "Content": {
     "BuyAndSell": {
-      "header": "KH Buy & Sell Bitcoin <br /> in Cambodia",
-      "connect-title": "Exchange directly with us on Telegram and Facebook.",
-      "swap-title": "Want to exchange Crypto to Crypto?",
-      "payment-title": "We support local payment methods in Cambodia",
-      "rates-title": "Current Cryptocurrency Exchange Rates"
+      "header": "វិធីទិញ និងលក់ Bitcoin នៅកម្ពុជា",
+      "connect-title": "ជួញដូរជាមួយយើងតាមរយៈ Telegram និង Facebook",
+      "local-title": "ជួញដូរជាមួយយើងលើ LocalCryptos និង LocalBitcoins",
+      "article-title": "សិក្សាអំពីរូបិយប័ណ្ណឌីជីថល"
     },
     "ConnectButton": {
-      "message-us": "Message us on "
+      "message-us": "ផ្ញើសារមកយើងតាម ",
+      "trade-us": "ជួញដូរនៅលើ "
     },
     "FAQ": {
-      "header": "Frequently Asked Questions",
-      "about": "About DAIX",
+      "header": "សំណួរ​ដែលគេ​សួរញឹកញាប់",
+      "about": "សិក្សាអំពីរូបិយប័ណ្ណឌីជីថល",
       "Faqs": {
         "1": {
-          "q": "How do I Buy and Sell Bitcoin using DAIX?",
-          "a": "DAIX supports all major payment methods in Cambodia. Get in contact with us through Telegram, Facebook, LocalCryptos.com and, LocalBitcoins.com."
+          "q": "សំណួរ៖ តើខ្ញុំទិញ និងលក់ Bitcoin ជាមួយអ្នកបានយ៉ាងដូចម្តេច?",
+          "a": "ចម្លើយ៖ យើងគាំទ្ររាល់វិធីសាស្រ្តទូទាត់ប្រាក់ធំៗនៅក្នុងប្រទេសកម្ពុជា ។ ទាក់ទងជាមួយពួកយើងតាមរយៈ Telegram, Facebook, LocalCryptos.com និង LocalBitcoins.com ។"
         },
         "3": {
-          "q": "Why should I trust you?",
-          "a": "We at DAIX have been trading cryptocurrency and building a reputation in Cambodia for quite some time now. Find us on LocalCryptos.com and LocalBitcoins.com two of the most trusted P2P trading platforms."
+          "q": "សំណួរ៖ ហេតុអ្វីខ្ញុំគួរទុកចិត្តអ្នក?",
+          "a": "ចម្លើយ៖ យើងបានធ្វើការជួញដូរគ្រីពតូ និងបង្កើតកេរ្តិ៍ឈ្មោះនៅក្នុងប្រទេសកម្ពុជាមួយរយៈហើយ ។ ស្វែងរកយើងនៅលើគេហទំព័រ LocalCryptos.com និង LocalBitcoins.com ដែលជាវេទិកាជួញដូរ P2P ទាំងពីរដែលគួរឱ្យទុកចិត្តបំផុត ។"
         },
         "4": {
-          "q": "What is our transaction fees?",
-          "a": "We charge between 3% to 5% depending on the current demand and supply. The conversion rate you see is inclusive of our fees."
+          "q": "សំណួរ៖ តើអ្នកគិតថ្លៃសេវាដូចម្តេចដែរ?",
+          "a": "ចម្លើយ៖ យើងគិតថ្លៃចន្លោះពី 3 ទៅ 10 ភាគរយអាស្រ័យលើតម្រូវការ និងការផ្គត់ផ្គង់បច្ចុប្បន្ន ។ ចូលទៅកាន់ទំព័រអត្រាការជួញដូររបស់យើងដើម្បីស្វែងយល់បន្ថែម ។"
         },
         "5": {
-          "q": "Can I get a better rate for larger volume transactions?",
-          "a": "This can sometimes be the case. Please get in contact with us so we can discuss it further."
+          "q": "សំណួរ៖ តើខ្ញុំអាចទទួលបានអត្រាការជួញដូរប្រសើរជាងមុនសម្រាប់ប្រតិបត្តិការបរិមាណធំជាងមុនទេ?",
+          "a": "ចម្លើយ៖ យើងអាចធ្វើទៅបានតាមករណីខ្លះ ។ សូមទំនាក់ទំនងជាមួយពួកយើងដូច្នេះយើងអាចពិភាក្សាបន្ថែមទៀត ។"
         },
         "6": {
-          "q": "What is the minimum amount?",
-          "a": "For Ethereum, DAI and USDC the minimum amount is $55. For Bitcoin, the minimum amount is $200."
+          "q": "សំណួរ៖ តើការជួញដូរអប្បបរមាមានចំនួនប៉ុន្មាន?",
+          "a": "ចម្លើយ៖ សម្រាប់ Ethereum, DAI និង USDC ចំនួនអប្បបរមាគឺ 55 ដុល្លារ ។ សម្រាប់ Bitcoin ចំនួនអប្បបរមាគឺ 200 ដុល្លារ ។"
         },
         "7": {
-          "q": "When should I receive my funds?",
-          "a": "It takes 1 - 30 minutes depending on the Blockchain. We recommend using Ethereum or ERC20 Tokens like DAI and USDC if you wish faster confirmation."
+          "q": "សំណួរ៖ តើខ្ញុំគួរទទួលបានលុយឌីជីថលរបស់ខ្ញុំនៅពេលណា?",
+          "a": "ចម្លើយ៖ វាត្រូវការពេល 1 ទៅ 30 នាទីអាស្រ័យលើ Blockchain ។ យើងសូមណែនាំឱ្យប្រើ Ethereum ឬ ERC20 Tokens ដូចជា DAI និង USDC ប្រសិនបើអ្នកចង់បានការបញ្ជាក់លឿនជាងមុន ។"
         },
         "8": {
-          "q": "What's a cryptocurrency wallet address?",
-          "a": "A cryptocurrency wallet is a digital place for your coins to be stored. Each coin has a certain wallet provider. That could be apps, web wallets and other applications. The wallet address represents a randomly generated combination of digits and letters. DAIX doesn't provide wallet addresses and never stores user deposits. To exchange cryptocurrencies, you need to have a cryptocurrency wallet address."
+          "q": "សំណួរ៖ តើអាសយដ្ឋានកាបូបលុយឌីជីថល (cryptocurrency wallet address) គឺជាអ្វី?",
+          "a": "ចម្លើយ៖ កាបូបលុយអេឡិចត្រូនិចគឺជាកន្លែងសម្រាប់រក្សាទុកកាក់ឌីជីថលរបស់អ្នក ។ កាក់ឌីជីថលនីមួយៗមានកាបូបលុយអេឡិចត្រូនិចជាក់លាក់ ។ វាអាចជាកម្មវិធីកុំព្យូទ័រ កម្មវិធីទូរស័ព្ទ កាបូបឌីជីថលនៅលើវេបសាយ ឬកម្មវិធីផ្សេងទៀត ។ អាសយដ្ឋានកាបូប (wallet address) តំណាងឱ្យការរួមបញ្ចូលគ្នានៃលេខ និងអក្សរដែលបានបង្កើតដោយចៃដន្យ ។ DAIX មិនផ្តល់នូវអាស័យដ្ឋានកាបូបអេឡិចត្រូនិចទេហើយក៏មិនរក្សាទុកគ្រីពតូរបស់អ្នកប្រើប្រាស់ដែរ ។ ដើម្បីជួញដូរលុយឌីជីថល អ្នកត្រូវមានអាសយដ្ឋានកាបូបលុយឌីជីថលដោយខ្លួនឯង ។"
         },
         "9": {
-          "q": "How do I get a cryptocurrency wallet address?",
-          "a": "If you have an account with a cryptocurrency exchange service like Binance, go to Wallet -> Deposit and then select the coin. You will see a long random-looking address, you can share this address with us to receive your coins."
+          "q": "សំណួរ៖ តើខ្ញុំទទួលបានអាសយដ្ឋានកាបូបលុយឌីជីថល (wallet address) យ៉ាងដូចម្តេច?",
+          "a": "ចម្លើយ៖ ប្រសិនបើអ្នកមានគណនីជាមួយសេវាកម្មជួញដូរគ្រីពតូរួចមកហើយ ដូចជា Binance សូមចូលទៅកាន់ Wallet -> Deposit ហើយបន្ទាប់មកជ្រើសរើសយកកាក់ឌីជីថល (coin) ។ អ្នកនឹងឃើញខ្សែអក្សរដែលក្រឡេកមើលចៃដន្យដ៏វែងនោះគឺជាអាសយដ្ឋានរបស់អ្នក ហើយអ្នកអាចចែករំលែកវាជាមួយយើងដើម្បីទទួលកាក់ឌីជីថលរបស់អ្នក ។"
         },
         "10": {
-          "q": "Why isn't my Bitcoin showing in my wallet?",
-          "n": "The time it will take for the Bitcoin to show up depends on which wallet or exchange you are using to receive the Bitcoin. This is usually because they require more network confirmation for the Bitcoin to become visible in your account."
+          "q": "សំណួរ៖ ហេតុអ្វីបានជា Bitcoin មិនបង្ហាញនៅក្នុងកាបូបរបស់ខ្ញុំ?",
+          "a": "ចម្លើយ៖ វាត្រូវការពេលវេលាដើម្បីបង្ហាញ Bitcoin អាស្រ័យលើ Wallet ឬកន្លែងជួញដូរ (exchange) មួយណាដែលអ្នកកំពុងប្រើដើម្បីទទួលបាន Bitcoin ។ វាជារឿងធម្មតាទេដោយសារតែពួកគេត្រូវការការបញ្ជាក់ពីបណ្តាញបន្ថែមទៀតដើម្បីឱ្យ Bitcoin អាចមើលឃើញនៅក្នុងគណនីរបស់អ្នក ។"
         }
       }
     }

@@ -29,9 +29,7 @@
       "header": "Buy & Sell Bitcoin <br /> in Cambodia",
       "connect-title": "Trade with us through Telegram and Facebook",
       "local-title": "Trade with us on LocalCryptos and LocalBitcoins",
-      "swap-title": "Want to exchange Crypto to Crypto?",
-      "payment-title": "We support payment methods in Cambodia",
-      "rates-title": "Current Cryptocurrency Exchange Rates"
+      "article-title": "Learn About Cryptocurrency"
     },
     "ConnectButton": {
       "message-us": "Message us on ",
@@ -47,7 +45,7 @@
         },
         "3": {
           "q": "Why should I trust you?",
-          "a": "We have been trading cryptocurrency and building a reputation in Cambodia for quite some time. Click on the links above to fund us on LocalCryptos.com and LocalBitcoins.com two of the most trusted P2P trading platforms."
+          "a": "We have been trading cryptocurrency and building a reputation in Cambodia for quite some time. Find us on LocalCryptos.com and LocalBitcoins.com, they are two of the most trusted P2P trading platforms."
         },
         "4": {
           "q": "What are the fees?",
@@ -75,7 +73,7 @@
         },
         "10": {
           "q": "Why isn't my Bitcoin showing in my wallet?",
-          "n": "The time it will take for the Bitcoin to show up depends on which wallet or exchange you are using to receive the Bitcoin. This is usually because they require more network confirmation for the Bitcoin to become visible in your account."
+          "a": "The time it will take for the Bitcoin to show up depends on which wallet or exchange you are using to receive the Bitcoin. This is usually because they require more network confirmation for the Bitcoin to become visible in your account."
         }
       }
     }

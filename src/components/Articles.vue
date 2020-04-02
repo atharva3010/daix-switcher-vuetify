@@ -5,7 +5,7 @@
       :class="$vuetify.breakpoint.smAndUp ? 'display-1' : 'headline'"
       style="letter-spacing:1px !important"
     >
-      Learn About Cryptocurrency
+      {{ $t('Content.BuyAndSell.article-title') }}
     </h2>
     <div
       class="section"

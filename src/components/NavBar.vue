@@ -34,9 +34,10 @@
         </v-list-item>
         <v-list-item
           color="secondary"
-          :to="'/' + $i18n.locale + view.path"
+          :to="{ name: view.name }"
           v-for="(view, i) in views"
           :key="i"
+          replace="true"
           link
         >
           <v-list-item-icon class="mr-3">
@@ -75,12 +76,10 @@ export default {
       views: [
         {
           name: 'Buy & Sell',
-          path: '/',
           icon: 'mdi-cash-usd-outline'
         },
         {
           name: 'Swap',
-          path: '/swap',
           icon: 'mdi-swap-vertical-bold'
         }
         // {

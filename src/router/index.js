@@ -24,7 +24,7 @@ const articles = Object.keys(blog).map(section => {
 const routes = [
   {
     path: '/',
-    redirect: `/${i18n.locale}`
+    redirect: `/${i18n.locale}/buy-and-sell`
   },
   {
     path: '/:lang',
@@ -35,7 +35,7 @@ const routes = [
     },
     children: [
       {
-        path: '/',
+        path: 'buy-and-sell',
         name: 'Buy & Sell',
         component: BuyAndSell
       },

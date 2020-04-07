@@ -115,11 +115,6 @@ export default {
     ExchangeAlert
   },
   name: 'Exchange',
-  metaInfo: {
-    title: 'Swap Your Cryptocurrency',
-    // override the parent template and just use the above title only
-    titleTemplate: null
-  },
   data() {
     return {
       showExchangeDialog: false,

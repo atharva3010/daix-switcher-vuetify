@@ -9,10 +9,7 @@
         :class="[$vuetify.breakpoint.smAndUp ? 'display-1' : 'headline']"
         style="letter-spacing:5px !important"
       >
-        <router-link
-          style="text-decoration:none; color: inherit;"
-          :to="`/${$i18n.locale}`"
-        >
+        <router-link style="text-decoration:none; color: inherit;" :to="`/`">
           {{ title }}
         </router-link>
       </v-toolbar-title>
@@ -34,7 +31,7 @@
         </v-list-item>
         <v-list-item
           color="secondary"
-          :to="'/' + $i18n.locale + view.path"
+          :to="{ name: view.name }"
           v-for="(view, i) in views"
           :key="i"
           link
@@ -75,12 +72,10 @@ export default {
       views: [
         {
           name: 'Buy & Sell',
-          path: '/',
           icon: 'mdi-cash-usd-outline'
         },
         {
           name: 'Swap',
-          path: '/swap',
           icon: 'mdi-swap-vertical-bold'
         }
         // {

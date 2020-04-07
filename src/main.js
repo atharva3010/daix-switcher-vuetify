@@ -5,7 +5,7 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import VueQrcode from '@chenfengyuan/vue-qrcode'
 import i18n from './i18n'
-import VueMeta from 'vue-meta'
+import Meta from 'vue-meta'
 import VueAnalytics from 'vue-analytics'
 
 Vue.use(VueAnalytics, {

@@ -37,7 +37,6 @@
           :to="{ name: view.name }"
           v-for="(view, i) in views"
           :key="i"
-          replace="true"
           link
         >
           <v-list-item-icon class="mr-3">

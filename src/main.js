@@ -14,6 +14,10 @@ Vue.use(VueAnalytics, {
 
 Vue.component(VueQrcode.name, VueQrcode)
 
+Vue.use(Meta, {
+  refreshOnceOnNavigation: true
+})
+
 Vue.config.productionTip = false
 
 // use beforeEach route guard to set the language
@@ -34,6 +38,5 @@ new Vue({
   store,
   vuetify,
   i18n,
-  VueMeta,
   render: h => h(App)
 }).$mount('#app')

@@ -5,13 +5,8 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import VueQrcode from '@chenfengyuan/vue-qrcode'
 import i18n from './i18n'
-import Meta from 'vue-meta'
 
 Vue.component(VueQrcode.name, VueQrcode)
-
-Vue.use(Meta, {
-  refreshOnceOnNavigation: true
-})
 
 Vue.config.productionTip = false
 

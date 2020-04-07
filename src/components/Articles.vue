@@ -42,7 +42,7 @@
                 ? 'max-width:240px'
                 : 'max-width:130px'
             "
-            :src="loadImg(article.img)"
+            :src="article.img"
             style="border-radius:1px; object-fit: contain;"
             class="pr-5 mb-0"
             alt="article header img"

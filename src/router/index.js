@@ -136,7 +136,7 @@ const routes = [
         component: () =>
           import(/* webpackChunkName: "exchange" */ '../views/Exchange.vue'),
         meta: {
-          title: 'Swap Your Cryptocurrency'
+          title: 'DaiX Cambodia | Swap Your Cryptocurrency'
         }
       },
       {
@@ -145,7 +145,7 @@ const routes = [
         component: () =>
           import(/* webpackChunkName: "orders" */ '../views/Orders.vue'),
         meta: {
-          title: 'View your orders'
+          title: 'DaiX Cambodia | View your orders'
         }
       },
       ...articles

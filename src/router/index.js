@@ -24,7 +24,7 @@ const articles = Object.keys(blog).map(section => {
         },
         {
           property: 'og:url',
-          content: 'https://daix.co/'
+          content: `https://daix.co/articles/${child.id}`
         },
         {
           property: 'og:title',
@@ -36,11 +36,11 @@ const articles = Object.keys(blog).map(section => {
         },
         {
           property: 'og:image',
-          content: () => import(`@/assets/articles${child.img}`)
+          content: child.img
         },
         {
           property: 'twitter:url',
-          content: 'https://daix.co/'
+          content: `https://daix.co/articles/${child.id}`
         },
         {
           property: 'twitter:title',
@@ -80,19 +80,73 @@ const routes = [
       {
         path: 'buy-and-sell',
         name: 'Buy & Sell',
-        component: BuyAndSell
+        component: BuyAndSell,
+        meta: {
+          title: 'DaiX Cambodia | Buy and Sell Bitcoin',
+          metaTags: [
+            {
+              name: 'description',
+              content:
+                'Buy and Sell Bitcoin in Cambodia with local payment methods ABA, Wing, TrueMoney. Chat with us now on Telegram and Facebook Messenger.'
+            },
+            {
+              property: 'og:type',
+              content: 'website'
+            },
+            {
+              property: 'og:url',
+              content: `https://daix.co/${i18n.locale}/buy-and-sell`
+            },
+            {
+              property: 'og:title',
+              content: 'DaiX Cambodia | Buy and Sell Bitcoin'
+            },
+            {
+              property: 'og:description',
+              content:
+                'Buy and Sell Bitcoin in Cambodia with local payment methods ABA, Wing, TrueMoney. Chat with us now on Telegram and Facebook Messenger.'
+            },
+            {
+              property: 'og:image',
+              content: 'https://i.ibb.co/bdXdpCd/image.png'
+            },
+            {
+              property: 'twitter:url',
+              content: `https://daix.co/${i18n.locale}/buy-and-sell`
+            },
+            {
+              property: 'twitter:title',
+              content: 'DaiX Cambodia | Buy and Sell Bitcoin'
+            },
+            {
+              property: 'twitter:description',
+              content:
+                'Buy and Sell Bitcoin in Cambodia with local payment methods ABA, Wing, TrueMoney. Chat with us now on Telegram and Facebook Messenger.'
+            },
+            {
+              property: 'twitter:image',
+              content: 'https://i.ibb.co/bdXdpCd/image.png'
+            }
+          ]
+        }
       },
       {
         path: 'swap',
         name: 'Swap',
         component: () =>
-          import(/* webpackChunkName: "exchange" */ '../views/Exchange.vue')
+          import(/* webpackChunkName: "exchange" */ '../views/Exchange.vue'),
+        meta: {
+          title: 'Swap Your Cryptocurrency'
+        }
       },
       {
         path: 'orders',
         name: 'My Orders',
         component: () =>
-          import(/* webpackChunkName: "orders" */ '../views/Orders.vue')
+          import(/* webpackChunkName: "orders" */ '../views/Orders.vue'),
+        meta: {
+          title: 'View your orders'
+        }
       },
       ...articles
     ]
